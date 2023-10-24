@@ -21,13 +21,13 @@
                             enregistrer sous le numéro <u><b>{{ $data['code_demande'] }}.</b></u></p>
                         <p>Suivez votre demande sur notre site avec votre code de demande.</p>
 
-
                         <div class="mt-2 mb-2">
                             <p>
                                 <i>Au plaisir, de vous revoir !!!</i>
                             </p>
                         </div>
-                        <a href="#" class="btn btn-primary btn-lg">Go Home</a>
+                        <a href="https://fashs-uac.ecolebj.com" class="btn btn-primary btn-lg">Retourner à sur le site
+                            de la FASHS-UAC</a>
                     </div>
                     <!--/ End Error Inner -->
                 </div>

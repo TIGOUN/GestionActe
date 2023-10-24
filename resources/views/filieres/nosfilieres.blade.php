@@ -22,7 +22,7 @@
                     <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
                         <div class="feature-box d-flex align-items-center">
                             <i class="bi bi-check"></i>
-                            <h3>histoire et Archéologie</h3>
+                            <h3>Histoire et Archéologie</h3>
                         </div>
                     </div>
 

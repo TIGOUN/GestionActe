@@ -354,7 +354,7 @@ function afficherFormulaire() {
         `;
     } else if (typeElement === '4') {
         formContainer.innerHTML = `
-            // Releves de notes de la deuxième année
+            <!-- Releves de notes de la deuxième année -->
 
             <h3 class="text-center mt-2 py-2">3- CURSUS ACADÉMIQUE</h3>
             
@@ -493,9 +493,9 @@ function afficherFormulaire() {
             </div>
         `;
 
-    } else if (typeElement === '4') {
+    } else if (typeElement === '5') {
         formContainer.innerHTML = `
-            // Releves de notes de la troisième année
+            <!-- Releves de notes de la troisième année -->
 
             <h3 class="text-center mt-2 py-2">3- CURSUS ACADÉMIQUE</h3>
             
@@ -515,7 +515,7 @@ function afficherFormulaire() {
                         @enderror
                     </div>
                 </div>
-                // Deuxième année
+                <!-- Deuxième année -->
                 <div class="col-lg-6">
                     <div class="mb-3">
                         <label class="form-label">Deuxième année</label>
@@ -532,7 +532,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Troisieme année
+            <!-- Troisieme année -->
             <!-- Première année -->
             <div class="row">
                 <div class="col-lg-12">
@@ -669,9 +669,9 @@ function afficherFormulaire() {
             </div>
         `;
 
-    } else if (typeElement === '4') {
+    } else if (typeElement === '6') {
         formContainer.innerHTML = `
-            // Releves de notes du quatrième 1
+            <!-- Releves de notes du quatrième -->
 
             <h3 class="text-center mt-2 py-2">3- CURSUS ACADÉMIQUE</h3>
 
@@ -785,9 +785,9 @@ function afficherFormulaire() {
             </div>
         `;
 
-    } else if (typeElement === '4') {
+    } else if (typeElement === '7') {
         formContainer.innerHTML = `
-            // Releves de notes de la cinquième année
+            <!-- Releves de notes de la cinquième année -->
 
             <h3 class="text-center mt-2 py-2">3- CURSUS ACADÉMIQUE</h3>
             
@@ -928,7 +928,7 @@ function afficherFormulaire() {
 
     } else if (typeElement === '4') {
         formContainer.innerHTML = `
-        // Duplicata des releves de notes
+        <!-- Duplicata des releves de notes -->
         <h3 class="text-center mt-2 py-2">3- CURSUS ACADÉMIQUE</h3>
 
             <h3 class="text-center mt-2 py-2">4- DOCUMENTS RÉQUIS</h3>
@@ -1033,9 +1033,9 @@ function afficherFormulaire() {
                 </div>
             </div>
         `;
-    } else if (typeElement === '4') {
+    } else if (typeElement === '8') {
         formContainer.innerHTML = `
-        // Attestations du DUEL2(CLASSIQUE) ou de SUCCES(LMD)
+        <!-- Attestations du DUEL2(CLASSIQUE) ou de SUCCES(LMD) -->
 
             <h3 class="text-center mt-2 py-2">4- DOCUMENTS RÉQUIS</h3>
 
@@ -1136,10 +1136,9 @@ function afficherFormulaire() {
                 </div>
             </div>
         `;
-    } else if (typeElement === '4') {
+    } else if (typeElement === '14') {
         formContainer.innerHTML = `
-            // LICENCE CLASSIQUE ou LMD
-            // Attestations du DUEL2(CLASSIQUE) ou de SUCCES(LMD)
+            <!-- LICENCE CLASSIQUE ou LMD -->
 
             <h3 class="text-center mt-2 py-2">4- DOCUMENTS RÉQUIS</h3>
 
@@ -1170,7 +1169,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Carte d'étudiant et releves de notes licence 1
+            <!-- Carte d'étudiant et releves de notes licence 1 -->
             <div class="row"> 
                 <div class="col-lg-6">
                     <div class="mb-3">
@@ -1224,7 +1223,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Programmation et Originale du quitus
+            <!-- Programmation et Originale du quitus -->
             <div class="row"> 
                 <div class="col-lg-6">
                     <div class="mb-3">
@@ -1295,9 +1294,9 @@ function afficherFormulaire() {
                 </div>
             </div>
         `;
-    } else if (typeElement === '4') {
+    } else if (typeElement === '11') {
         formContainer.innerHTML = `
-            // MASTER
+            <!-- MASTER -->
             
             <h3 class="text-center mt-2 py-2">4- DOCUMENTS RÉQUIS</h3>
 
@@ -1356,7 +1355,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Programmation 
+            <!-- Programmation -->
             <div class="row"> 
                 <div class="col-lg-12">
                     <div class="mb-3">
@@ -1401,9 +1400,9 @@ function afficherFormulaire() {
             </div>
         `;
 
-    } else if (typeElement === '4') {
+    } else if (typeElement === '10') {
         formContainer.innerHTML = `
-        // MAITRISE
+        <!-- MAITRISE -->
 
             <h3 class="text-center mt-2 py-2">4- DOCUMENTS RÉQUIS</h3>
 
@@ -1434,7 +1433,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Carte d'étudiant et original du quitus
+            <!-- Carte d'étudiant et original du quitus -->
             <div class="row"> 
                 <div class="col-lg-6">
                     <div class="mb-3">
@@ -1460,7 +1459,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Releves de notes licence 1 et 2
+            <!-- Releves de notes licence 1 et 2 -->
             <div class="row"> 
                 <div class="col-lg-6">
                     <div class="mb-3">
@@ -1515,7 +1514,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Programmation
+            <!-- Programmation -->
             <div class="row"> 
                 <div class="col-lg-12">
                     <div class="mb-3">
@@ -1559,9 +1558,9 @@ function afficherFormulaire() {
                 </div>
             </div>
         `;
-    } else if (typeElement === '4') {
+    } else if (typeElement === '12') {
         formContainer.innerHTML = `
-            // DUPLICATA DES ATTESTATIONS
+            <!-- DUPLICATA DES ATTESTATIONS -->
 
             <h3 class="text-center mt-2 py-2">4- DOCUMENTS RÉQUIS</h3>
 
@@ -1592,7 +1591,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Carte d'étudiant et pièces suscite
+            <!-- Carte d'étudiant et pièces suscite -->
             <div class="row"> 
                 <div class="col-lg-6">
                     <div class="mb-3">
@@ -1618,7 +1617,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Certificat de perte et de l'acte perdu
+            <!-- Certificat de perte et de l'acte perdu -->
             <div class="row"> 
                 <div class="col-lg-6">
                     <div class="mb-3">
@@ -1674,9 +1673,9 @@ function afficherFormulaire() {
                 </div>
             </div>
         `;
-    } else if (typeElement === '4') {
+    } else if (typeElement === '17') {
         formContainer.innerHTML = `
-            // Certification en langue anglaise
+            <!-- Certification en langue anglaise -->
 
             <h3 class="text-center mt-2 py-2">4- DOCUMENTS RÉQUIS</h3>
 
@@ -1707,7 +1706,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Carte d'étudiant
+            <!-- Carte d'étudiant -->
             <div class="row"> 
                 <div class="col-lg-12">
                     <div class="mb-3">
@@ -1751,9 +1750,9 @@ function afficherFormulaire() {
                 </div>
             </div>
         `;
-    } else if (typeElement === '4') {
+    } else if (typeElement === '16') {
         formContainer.innerHTML = `
-            // CERTIFICATION/AUTHENTICITE
+            <!-- CERTIFICATION/AUTHENTICITE -->
 
             <h3 class="text-center mt-2 py-2">4- DOCUMENTS RÉQUIS</h3>
 
@@ -1812,7 +1811,7 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            // Carte d'étudiant
+            <!-- Carte d'étudiant -->
             <div class="row"> 
                 <div class="col-lg-12">
                     <div class="mb-3">
@@ -1856,9 +1855,9 @@ function afficherFormulaire() {
                 </div>
             </div>
         `;
-    } else if (typeElement === '4') {
+    } else if (typeElement === '14') {
         formContainer.innerHTML = `
-            // CERTIFICAT DE SCOLARITE
+            <!-- CERTIFICAT DE SCOLARITE -->
 
             <h3 class="text-center mt-2 py-2">4- DOCUMENTS RÉQUIS</h3>
 
@@ -1890,7 +1889,7 @@ function afficherFormulaire() {
             </div>
 
 
-            // Carte d'étudiant
+            <!-- Carte d'étudiant -->
             <div class="row"> 
                 <div class="col-lg-12">
                     <div class="mb-3">

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -110,8 +111,6 @@ Route::get('/programmations-des-soutenances/{soutenance}', [App\Http\Controllers
 Route::get('/admission/toute-les-admissions', [App\Http\Controllers\AdmissionController::class, 'index'])->name('admission.index');
 Route::get('/admission/delete', [App\Http\Controllers\AdmissionController::class, 'destroy'])->name('admission.destroy');
 Route::put('/admission/update/{admission}', [App\Http\Controllers\AdmissionController::class, 'update'])->name('admission.update');
-
-
 });
 
 // Posts user
@@ -125,7 +124,7 @@ Route::get('/demande/formulaire/rechercher', [App\Http\Controllers\DemandeContro
 
 
 // Admissions
-Route::post('/admission', [App\Http\Controllers\AdmissionController::class, 'store'])->name('admission.store');
+Route::post('/admission', [App\Http\Controllers\AdmissionUserController::class, 'store'])->name('admission.store');
 Route::get('/admission/formulaire/admission', [App\Http\Controllers\AdmissionUserController::class, 'create'])->name('admission.create');
 
 

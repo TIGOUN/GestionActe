@@ -49,7 +49,7 @@
                             @foreach($actes as $key => $acte)
                             @if($acte->acte_parent_id==null)
                             <tr>
-                                <td>{{ $key }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $acte->code }}</td>
                                 <td>{{ $acte->nom }}</td>
                                 <td>

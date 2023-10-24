@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EmailReponseRejeter;
+use App\Mail\EmailReponseValider;
 use App\Mail\EnvoisCodeDeDemande;
 use App\Models\Demande;
 use App\Models\Document;
@@ -277,98 +279,64 @@ class DemandeController extends Controller
         // dd($request);
 
         
-        // $demande = [
-        //     'code_demande' => $demande->code_demande,
-        //     'nom' => $demande->etudiant->nom,
-        //     'prenoms' => $demande->etudiant->prenoms,
-        // ];
-        // Mail::to($request->email)->send(new EnvoisCodeDeDemande($demande));
-
-        
+        $demande = [
+            'code_demande' => $demande->code_demande,
+            'nom' => $demande->etudiant->nom,
+            'prenoms' => $demande->etudiant->prenoms,
+        ];
+        Mail::to($request->email)->send(new EnvoisCodeDeDemande($demande));
 
         return redirect(route('relever.premiere')); 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Demande $demande)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Demande $demande)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Demande $demande)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Demande $demande)
-    {
-        //
-    }
-
-
-    public function reponse_demande(Request $request,Reponse $reponse)
-    {
-        if($request->status=="valider")
+        public function reponse_demande(Request $request,Reponse $reponse)
         {
-            $request->validate([
-                // 'acte_demande' => 'mimes:pdf|max:2048',
-            ]);
-            $pdf = $request->file('acte_demande');
-            foreach($pdf as $acte)
+            if($request->status=="valider")
             {
-                $name_file = $acte->store('documents','public');
-                $acte_reponse[] = $name_file;
+                $request->validate([
+                    // 'acte_demande' => 'mimes:pdf|max:2048',
+                ]);
+                
+                $pdf = $request->file('acte_demande');
+                foreach($pdf as $acte)
+                {
+                    $name_file = $acte->store('documents','public');
+                    $acte_reponse[] = $name_file;
+                }
+
+                $reponse->update([
+                    'acte_demande' => json_encode($acte_reponse),
+                    'motif_refus' => null
+                ]);
+                
+                $demande = Demande::find($request->id_demande);
+
+                $demande->update([
+                    'statut_reponse' => "Valider"
+                ]);
+                
+                Mail::to($demande->etudiant->email)->send(new EmailReponseValider($demande));
+                return redirect(route('demande.index'));
+            }else if($request->status=="rejeter"){
+                
+                $request->validate([
+                    'motif_refus' => 'required|string|max:500'
+                ]);
+
+                $reponse->update([
+                    'acte_demande' => null,
+                    'motif_refus' => $request->motif_refus,
+                ]);
+                $demande = Demande::find($request->id_demande);
+                $demande->update([
+                    'statut_reponse' => "Rejeter"
+                ]);
+                
+                Mail::to($demande->etudiant->email)->send(new EmailReponseRejeter($demande));
+                return redirect(route('demande.index'));
             }
-
-            $reponse->update([
-                'acte_demande' => json_encode($acte_reponse),
-                'motif_refus' => null
-            ]);
-            
-            // dd('ok');
-            $demande = Demande::find($request->id_demande);
-            // dd($demande);
-
-            $demande->update([
-                'statut_reponse' => "Valider"
-            ]);
-            
-            return redirect(route('demande.index'));
-        }else if($request->status=="rejeter"){
-            
-            $request->validate([
-                'motif_refus' => 'required|string|max:500'
-            ]);
-
-            $reponse->update([
-                'acte_demande' => null,
-                'motif_refus' => $request->motif_refus,
-            ]);
-
-            $demande = Demande::find($request->id_demande);
-
-            $demande->update([
-                'statut_reponse' => "Rejeter"
-            ]);
-            return redirect(route('demande.index'));
         }
-    }
 
     public function enattente()
     {

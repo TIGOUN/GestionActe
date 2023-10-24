@@ -57,7 +57,6 @@ class HomeController extends Controller
         ->groupBy(DB::raw('YEAR(created_at)'))
         ->get();
 
-        $all_posts = Post::all()->count();
         $all_demandes = Demande::all()->count();
         $all_admissions = Admission::all()->count();
         $all_actes = Acte::all()->count();
@@ -67,7 +66,9 @@ class HomeController extends Controller
         $all_articles = Post::all()->count();
         $all_soutenances = ProgrammationSoutenance::all()->count();
         $all_evaluations = ProgrammationEvaluation::all()->count();
+        $all_posts = $all_evaluations + $all_resultats + $all_articles + $all_evaluations;
         
+        // dd($all_posts);
         $d_v = Demande::where('statut_reponse',"Valider")->count();
         $d_r = Demande::where('statut_reponse',"Rejeter")->count();
         $d_en = Demande::where('statut_reponse',"En attente")->count();

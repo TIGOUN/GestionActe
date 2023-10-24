@@ -11,7 +11,6 @@ class PostUserController extends Controller
     {
         $posts = Post::paginate(5);
         return view('blogs.index',compact('posts'));
-        // ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 

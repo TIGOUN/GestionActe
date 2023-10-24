@@ -8,8 +8,8 @@
     </div>
 
     <div class="row">
-        <div class="col mx-2 p-4 shadow p-2">
-            <h3 class="text-center pt-2">Demandes({{ $all_posts }})</h3>
+        <div class="col mx-2 p-4 shadow p-2" style="background-color:white;">
+            <h3 class="text-center pt-2">Demandes({{ $all_demandes }})</h3>
             <div class="mt-4 d-flex" style="font-size: 18px; justify-content : space-between;">
                 <div>Valider <span class="dot dot-lg bg-success"> </span> ({{ $d_v }})</div>
                 <div>Rejeter <span class="dot dot-lg bg-danger"> </span> ({{ $d_r }})</div>
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="col mx-2 p-4 shadow p-2" style="background-color: light;">
+        <div class="col mx-2 p-4 shadow p-2" style="background-color: white;">
             <h3 class="text-center pt-2">Admissions({{ $all_admissions }})</h3>
             <div class="mt-4 d-flex" style="font-size: 18px; justify-content : space-between;">
                 <div>Valider <span class="dot dot-lg bg-success"> </span> ({{ $a_v }})</div>
@@ -30,26 +30,26 @@
     </div>
 
     <div class="row mt-4">
-        <div class="col p-4 mx-1 shadow p-2">
+        <div class="col p-4 mx-1 shadow p-2" style="background-color: white;">
             <h3 class="text-center pt-2">Utilisateurs</h3>
             <p class="text-center mt-4" style="font-size: 18px;">
                 ({{ $all_users }})
             </p>
         </div>
-        <div class="col p-4 mx-1 shadow p-2">
+        <div class="col p-4 mx-1 shadow p-2" style="background-color: white;">
             <h3 class="text-center pt-2">Départements</h3>
             <p class="text-center mt-4" style="font-size: 18px;">
                 ({{ $all_departements }})
             </p>
         </div>
-        <div class="col p-4 mx-1 shadow p-2">
+        <div class="col p-4 mx-1 shadow p-2" style="background-color: white;">
             <h3 class="text-center pt-2">Actes Académiques</h3>
             <p class="text-center mt-4" style="font-size: 18px;">
                 ({{ $all_actes }})
             </p>
         </div>
-        <div class="col p-4 mx-1 shadow p-2">
-            <h3 class="text-center pt-2">Publier</h3>
+        <div class="col p-4 mx-1 shadow p-2" style="background-color: white;">
+            <h3 class="text-center pt-2">Publiers({{ $all_posts }})</h3>
             <div class="mt-4 d-flex" style="font-size: 18px; justify-content : space-between;">
                 <div>Examens ({{ $all_evaluations }})</div>
                 <div>Résultats ({{ $all_resultats }})</div>

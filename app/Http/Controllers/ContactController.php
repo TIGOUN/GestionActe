@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EmailContactezNous;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -21,13 +23,14 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        Contact::create([
-            'nom_prenoms' => $request->input('nom_prenoms'),
-            'email' => $request->input('email'),
-            'sujet' => $request->input('sujet'),
-            'message' => $request->input('message'),
-        ]);
+    $contact = Contact::create([
+                'nom_prenoms' => $request->input('nom_prenoms'),
+                'email' => $request->input('email'),
+                'sujet' => $request->input('sujet'),
+                'message' => $request->input('message'),
+            ]);
 
+        Mail::to("tigounzinsou@gmail.com")->send(new EmailContactezNous($contact));
         return back();
     }
 

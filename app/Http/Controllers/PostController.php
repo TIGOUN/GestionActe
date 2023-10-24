@@ -44,15 +44,13 @@ class PostController extends Controller
             // 'images'=> 'image'|'max:1024',
         ]);
 
-        $post = Post::create([
+        Post::create([
             'titre' => $request->titre,
             'sujet' => $request->sujet,
             'images' => $request->hasFile('images') ? $request->file('images')->store('images_blogs', 'public') : null,
         ]);
 
-        // dd($post->images);
-
-        return view('blogs.show',compact('post'));
+        return redirect(route('admin.blog.index'));
     }
 
     /**

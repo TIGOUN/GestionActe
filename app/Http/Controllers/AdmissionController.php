@@ -22,6 +22,7 @@ class AdmissionController extends Controller
     public function index()
     {
         $admissions = Admission::latest()->get();
+        // dd($admissions);
         return view('admin.admissions.index', compact('admissions'));
     }
 
@@ -33,38 +34,7 @@ class AdmissionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        // dd('ok');
 
-        // $this->validate($request,[
-        //     'nom' => 'required|string|max:255',
-        //     'prenoms' => 'required|string|max:255',
-        //     'email' => 'required|string|email|unique:admissions', 
-        //     'pays_residence' => 'required|string|max:255',
-        //     'pays_provenance' => 'required|string|max:255',
-        //     'sujet' => 'required|string|max:255',
-        //     'fichier' => 'mimes:pdf|max:2048', 
-        //     'message' => 'required|string',
-        // ]);
-
-
-        Admission::create([
-            'nom' => $request->input('nom'),
-            'prenoms' => $request->input('prenoms'),
-            'email' => $request->input('email'),
-            'pays_residence' => $request->input('pays_residence'),
-            'pays_provenance' => $request->input('pays_provenance'),
-            'sujet' => $request->input('sujet'),
-            'fichier' => $request->hasFile('fichier') ? $request->file('fichier')->store('documents', 'public') : null,
-            'message' => $request->input('message'),
-            'status' => 'En attente',
-            'motif_refus' => null,
-            'fichier_admission' => null,
-        ]);
-
-        return back();
-    }
 
     /**
      * Display the specified resource.

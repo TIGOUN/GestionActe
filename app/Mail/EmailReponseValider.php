@@ -3,10 +3,13 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class EnvoisCodeDeDemande extends Mailable
+class EmailReponseValider extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -20,8 +23,8 @@ class EnvoisCodeDeDemande extends Mailable
     public function build()
     {
         return $this->from("tigounzinsou@gmail.com") // L'expéditeur
-                    ->subject("Code de votre demande") // Le sujet
-                    ->view('emails.codedemande');
+                    ->subject("Réponse à votre demande d'acte académique") // Le sujet
+                    ->view('emails.validerdemande');
     }
 
     /**
