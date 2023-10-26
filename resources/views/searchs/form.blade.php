@@ -7,7 +7,9 @@
 <div class="mt-4">
     &nbsp;
 </div>
-
+<div class="mt-4">
+    &nbsp;
+</div>
 
 <section class="breadcrumbs">
     <div class="container">
@@ -25,15 +27,16 @@
     <div class="row justify-content-center">
         <div class="col-6">
 
-            <div class="row mt-4">
-                <p class="text-center">Rechercher une demande</p>
+            <div class="row mt-4 mb-3">
+                <h2 class="text-center">Rechercher une demande</h2>
             </div>
             <div class="row mb-5">
                 <form action="{{ route('search.demande') }}" method="POST" class="d-flex">
                     @csrf
                     <input type="text" class="form-control" name="search_demande"
                         placeholder="Entrer votre code demande">
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
+                    <button type="submit" class="btn btn-primary mx-2"><i class="bi bi-search mx-2 pt-2"
+                            style="font-weight: 900;"></i></button>
                 </form>
             </div>
         </div>

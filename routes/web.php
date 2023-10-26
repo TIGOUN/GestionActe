@@ -163,4 +163,4 @@ Route::get('/services/releves-de-notes/cinquieme-annee', [App\Http\Controllers\R
 Route::get('/services/releves-de-notes/doctorat', [App\Http\Controllers\ReleverController::class, 'doctorat'])->name('relever.doctorat');
 
 // Demandes sauvegarder
-Route::post('/admin/demandes/store', [App\Http\Controllers\DemandeController::class, 'store'])->name('demande.store');
+Route::post('/demandes/store', [App\Http\Controllers\DemandeUserController::class, 'store'])->name('demande.store');

@@ -30,7 +30,6 @@
         <form action="{{ route('demande.store') }}" class="mx-2" method="POST" enctype="multipart/form-data"
             autocomplete="on">
             @csrf
-
             <h3 class="text-center py-4">1- IDENTITÉ</h3>
 
             <!-- Nom et Prénoms -->
@@ -67,7 +66,7 @@
                 <div class="col-lg-6">
                     <div class="mb-3">
                         <label class="form-label">Matricule</label>
-                        <input type="text" minlength="6" maxlength="6"
+                        <input type="text" minlength="8" maxlength="8"
                             class="form-control @error('matricule') is-invalid @enderror" name="matricule"
                             value="{{ old('matricule') }}" required>
                         @error('matricule')

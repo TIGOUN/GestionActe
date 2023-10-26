@@ -31,10 +31,6 @@ class Kernel extends HttpKernel
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
-            \App\Http\Middleware\EnAttenteMiddleware::class,
-            \App\Http\Middleware\ValiderMiddleware::class,
-            \App\Http\Middleware\RejeterMiddleware::class,
-            \App\Http\Middleware\TouteDemandeMiddleware::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,

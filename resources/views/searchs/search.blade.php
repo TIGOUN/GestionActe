@@ -7,8 +7,11 @@
 <div class="mt-4">
     &nbsp;
 </div>
+<div class="mt-4">
+    &nbsp;
+</div>
 
-<!-- ======= Breadcrumbs ======= -->
+
 <section class="breadcrumbs">
     <div class="container">
         <ol>
@@ -112,7 +115,9 @@
                                 @method('PUT')
 
                                 <!-- <input type="hidden" name="dmd" value="{{ $demande->id }}" id=""> -->
+
                                 <div id="sig"></div>
+
                                 <br><br>
                                 <button id="clear" class="btn btn-danger">Effacer</button>
                                 <button class="btn btn-success" type="submit">Enregistrer</button>
