@@ -12,8 +12,10 @@ use App\Models\Matiere;
 use App\Models\Paiement;
 use App\Models\Reponse;
 use App\Models\Validation;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Vonage\Voice\NCCO\NCCO;
 
 class DemandeController extends Controller
 {
@@ -116,31 +118,103 @@ class DemandeController extends Controller
 
             // Debut
 
-            $curl = curl_init();
+            // $client = new Client();
+            // // Remplacez les valeurs suivantes par les vôtres
+            // $baseUrl = 'https://dmq6r1.api.infobip.com/tts/3/single';
+            // $authorization = 'App 3dde520a26cf6a4d67712ef72a291e9d-5f0080ac-317e-4bb8-a344-136dcd89a556';
 
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://dmq6r1.api.infobip.com/tts/3/single',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS =>'{"text":"Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales.","language":"fr","voice":{"name":"Joanna","gender":"female"},"from":"22959814321","to":"'.$demande->contacts.'"}',
-                CURLOPT_HTTPHEADER => array(
-                    'Authorization: {authorization}',
-                    'Content-Type: application/json',
-                    'Accept: application/json'
-                ),
-            ));
+            // $data = [
+            //     "text" => "Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales d'Abomey-Calavi. Votre demande d\'acte académique enregistré sous le numéro ".$demande->code_demande." a été traité. Merci !!!",
+            //     "language" => "en",
+            //     "voice" => [
+            //         "name" => "Joanna",
+            //         "gender" => "female",
+            //     ],
+            //     "from" => "22961074420",
+            //     "to" => "22991275862",
+            // ];
 
-            $response = curl_exec($curl);
+            // try {
+            //     $response = $client->post($baseUrl, [
+            //         'headers' => [
+            //             'Authorization' => $authorization,
+            //             'Content-Type' => 'application/json',
+            //             'Accept' => 'application/json',
+            //         ],
+            //         'json' => $data,
+            //     ]);
 
-            curl_close($curl);
-            echo $response;
+            //     // Vous pouvez traiter la réponse ici
+            //     $responseBody = $response->getBody()->getContents();
+            //     return $responseBody;
+            // } catch (\Exception $e) {
+            //     // Gérer les erreurs ici
+            //     return $e->getMessage();
+            // }
 
             // Fin
+
+// $client = new Client();
+// $JWT = "75qROH1Zjvg7ozeG";
+// $response = $client->post('https://api.nexmo.com/v1/calls', [
+//     'headers' => [
+//         'Authorization' => 'Bearer ' . $JWT,
+//         'Content-Type' => 'application/json',
+//     ],
+//     'json' => [
+//         'to' => [
+//             [
+//                 'type' => 'phone',
+//                 'number' => +22991275862,
+//             ],
+//         ],
+//         'from' => [
+//             'type' => 'phone',
+//             'number' => +22969360869,
+//         ],
+//         'ncco' => [
+//             [
+//                 'action' => 'talk',
+//                 'text' => "Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales d'Abomey-Calavi. Votre demande d\'acte académique enregistré sous le numéro ".$demande->code_demande." a été traité. Merci !!!",
+//             ],
+//         ],
+//     ],
+// ]);
+
+// // Vous pouvez accéder à la réponse ici, par exemple :
+// $response->getBody()->getContents();
+
+
+
+
+
+// dfghjkl;dfghjkldfghjkxxxxxxxxxxxxxxxxxxxxxxx
+
+// $keypair = new \Vonage\Client\Credentials\Keypair(
+//     file_get_contents('75qROH1Zjvg7ozeG'),
+//     'db605a07'
+// );
+
+$filePath = public_path('/admin/keys/private.key');
+$privateKey = file_get_contents($filePath);
+$apiKey = 'db605a07';
+
+$keypair = new \Vonage\Client\Credentials\Keypair($privateKey, $apiKey);
+
+$client = new \Vonage\Client($keypair);
+
+$outboundCall = new \Vonage\Voice\OutboundCall(
+    new \Vonage\Voice\Endpoint\Phone(+22991275862),
+    new \Vonage\Voice\Endpoint\Phone(+22969360869)
+);
+
+$ncco = new NCCO();
+$ncco->addAction(new \Vonage\Voice\NCCO\Action\Talk("Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales d'Abomey-Calavi. Votre demande d\'acte académique enregistré sous le numéro ".$demande->code_demande." a été traité. Merci !!!"));
+$outboundCall->setNCCO($ncco);
+
+$response = $client->voice()->createOutboundCall($outboundCall);
+
+var_dump($response);
 
 
 
@@ -187,28 +261,3 @@ class DemandeController extends Controller
     }
   
 }
-
-
-
-
-
-
-/****** */
-        // $msg = "Mr/Mdme ".$request->nom." votre demande d'acte académique est enregistré sous le numéro ".$demande->code_demande;
-
-        // $basic  = new \Vonage\Client\Credentials\Basic("db605a07", "75qROH1Zjvg7ozeG");
-        // $client = new \Vonage\Client($basic);
-
-
-        // $response = $client->sms()->send(
-        //     new \Vonage\SMS\Message\SMS($request->contacts, "FASHS-UAC", $msg)
-        // );
-
-        // $message = $response->current();
-/******* */
-        // if ($message->getStatus() == 0) {
-        //     echo "The message was sent successfully\n";
-        // } else {
-        //     echo "The message failed with status: " . $message->getStatus() . "\n";
-        // }
-        // dd($request);

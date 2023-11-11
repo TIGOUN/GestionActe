@@ -137,11 +137,11 @@ class DemandeUserController extends Controller
                 'copie_photo_identite' => $request->hasFile('copie_photo_identite') ? $request->file('copie_photo_identite')->store('documents', 'public') : null,
                 'originale_attestation' => $request->hasFile('originale_attestation') ? $request->file('originale_attestation')->store('documents', 'public') : null,
                 'copie_des_releves_notes' => $request->hasFile('copie_des_releves_notes') ? $request->file('copie_des_releves_notes')->store('documents', 'public') : null,
-                'copie_releve_1' => json_decode($copie_releve_1),
-                'copie_releve_2' => json_decode($copie_releve_2),
-                'copie_releve_3' => json_decode($copie_releve_3),
-                'copie_releve_4' => json_decode($copie_releve_4),
-                'copie_releve_5' => json_decode($copie_releve_5),
+                'copie_releve_1' => json_encode($copie_releve_1),
+                'copie_releve_2' => json_encode($copie_releve_2),
+                'copie_releve_3' => json_encode($copie_releve_3),
+                'copie_releve_4' => json_encode($copie_releve_4),
+                'copie_releve_5' => json_encode($copie_releve_5),
             ]);
 
         // Paiement
@@ -209,35 +209,35 @@ class DemandeUserController extends Controller
         // Debut du code
 
 
-$client = new Client([
-    'base_uri' => "https://dmq6r1.api.infobip.com/",
-    'headers' => [
-        'Authorization' => "App 3dde520a26cf6a4d67712ef72a291e9d-5f0080ac-317e-4bb8-a344-136dcd89a556",
-        'Content-Type' => 'application/json',
-        'Accept' => 'application/json',
-    ]
-]);
+// $client = new Client([
+//     'base_uri' => "https://dmq6r1.api.infobip.com/",
+//     'headers' => [
+//         'Authorization' => "App 3dde520a26cf6a4d67712ef72a291e9d-5f0080ac-317e-4bb8-a344-136dcd89a556",
+//         'Content-Type' => 'application/json',
+//         'Accept' => 'application/json',
+//     ]
+// ]);
 
-$response = $client->request(
-    'POST',
-    'sms/2/text/advanced',
-    [
-        RequestOptions::JSON => [
-            'messages' => [
-                [
-                    'from' => 'FASHS-UAC',
-                    'destinations' => [
-                        ['to' => "'.$request->contacts.'"]
-                    ],
-                    'text' => 'Votre demande d\'acte académique à la FASHS-UAC a été enregistré sous le numéro '.$demande['code_demande'],
-                ]
-            ]
-        ],
-    ]
-);
+// $response = $client->request(
+//     'POST',
+//     'sms/2/text/advanced',
+//     [
+//         RequestOptions::JSON => [
+//             'messages' => [
+//                 [
+//                     'from' => 'FASHS-UAC',
+//                     'destinations' => [
+//                         ['to' => "'.$request->contacts.'"]
+//                     ],
+//                     'text' => 'Votre demande d\'acte académique à la FASHS-UAC a été enregistré sous le code de demande '. $demande['code_demande'],
+//                 ]
+//             ]
+//         ],
+//     ]
+// );
 
-echo("HTTP code: " . $response->getStatusCode() . PHP_EOL);
-echo("Response body: " . $response->getBody()->getContents() . PHP_EOL);
+// echo("HTTP code: " . $response->getStatusCode() . PHP_EOL);
+// echo("Response body: " . $response->getBody()->getContents() . PHP_EOL);
         // Fin du code
 dd('ók');
         return redirect(route('relever.premiere')); 
