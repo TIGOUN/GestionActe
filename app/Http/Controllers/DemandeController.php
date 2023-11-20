@@ -247,17 +247,14 @@ var_dump($response);
         $demandes = Demande::where('statut_reponse','En attente')->get();
         return view('admin.demandes.enattente',compact('demandes'));
     }
-
     public function valider()
     {
         $demandes = Demande::where('statut_reponse','Valider')->get();
         return view('admin.demandes.index',compact('demandes'));
     }
-
     public function rejeter()
     {
         $demandes = Demande::where('statut_reponse','Rejeter')->get();
         return view('admin.demandes.index',compact('demandes'));
     }
-  
 }

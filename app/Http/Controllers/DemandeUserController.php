@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Listeners\SendNewDemandeNotification;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use App\Mail\EnvoisCodeDeDemande;
@@ -11,9 +12,14 @@ use App\Models\Etudiant;
 use App\Models\Matiere;
 use App\Models\Paiement;
 use App\Models\Reponse;
+use App\Models\User;
 use App\Models\Validation;
+use App\Notifications\DemandeNotification;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification as FacadesNotification;
+use Vonage\Voice\NCCO\Action\Notify;
 
 class DemandeUserController extends Controller
 {
@@ -198,14 +204,15 @@ class DemandeUserController extends Controller
         ]);
 
         
-        $demande = [
-            'code_demande' => $demande->code_demande,
-            'nom' => $demande->etudiant->nom,
-            'prenoms' => $demande->etudiant->prenoms,
-        ];
-        Mail::to($request->email)->send(new EnvoisCodeDeDemande($demande));
+        // $demande = [
+        //     'code_demande' => $demande->code_demande,
+        //     'nom' => $demande->etudiant->nom,
+        //     'prenoms' => $demande->etudiant->prenoms,
+        // ];
+        
+        #.5) Envois de mail
+        // Mail::to($request->email)->send(new EnvoisCodeDeDemande($demande));
 
-        // dd('ok');
         // Debut du code
 
 
@@ -239,7 +246,18 @@ class DemandeUserController extends Controller
 // echo("HTTP code: " . $response->getStatusCode() . PHP_EOL);
 // echo("Response body: " . $response->getBody()->getContents() . PHP_EOL);
         // Fin du code
-dd('ók');
+        
+
+        // Notification d'un nouvelle demande à l'administrateur.
+        // new SendNewDemandeNotification();
+         $admins = User::whereHas('roles', function ($query) {
+                $query->where('id', 1);
+            })->get();
+// dd($admins);
+        FacadesNotification::send(new DemandeNotification($admins,$demande->id));
+    
+        // $admins->notify(new DemandeNotification($demande));
+        
         return redirect(route('relever.premiere')); 
     }
 }

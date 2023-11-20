@@ -2,6 +2,8 @@
 
 namespace App\Notifications;
 
+use App\Models\Demande;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -14,9 +16,15 @@ class DemandeNotification extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+
+    protected $demande;
+    protected $admins;
+
+    
+    public function __construct(Demande $demande, User $admins)
     {
-        //
+        $this->demande = $demande;
+        $this->admins = $admins;
     }
 
     /**
@@ -26,19 +34,9 @@ class DemandeNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['database'];
     }
 
-    /**
-     * Get the mail representation of the notification.
-     */
-    public function toMail(object $notifiable): MailMessage
-    {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-    }
 
     /**
      * Get the array representation of the notification.
@@ -48,7 +46,7 @@ class DemandeNotification extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'code' => $this->demande->code_demande,
         ];
     }
 }
