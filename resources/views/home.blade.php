@@ -128,7 +128,7 @@ var ctx = document.getElementById('demandesParMoisChart').getContext('2d');
 
 // Création du graphique Chart.js
 var chart = new Chart(ctx, {
-    type: 'line', // Type de graphique (ligne dans ce cas)
+    type: 'bar', // Type de graphique (ligne dans ce cas)
     data: {
         labels: mois, // Mois en tant qu'étiquettes de l'axe des x
         datasets: [{

@@ -11,12 +11,13 @@ class DemandeNotification extends Notification
 {
     use Queueable;
 
+    protected $demande = [];
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($demande)
     {
-        //
+        $this->demande = $demande;
     }
 
     /**
@@ -26,7 +27,7 @@ class DemandeNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -48,7 +49,8 @@ class DemandeNotification extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'message' => 'Une nouvelle demande d\'acte académique a été enregistrer .',
+            'code' => $this->demande['code_demande'],
         ];
     }
 }

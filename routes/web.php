@@ -126,6 +126,7 @@ Route::get('/demande/formulaire/rechercher', [App\Http\Controllers\DemandeContro
 // Admissions
 Route::post('/admission', [App\Http\Controllers\AdmissionUserController::class, 'store'])->name('admission.store');
 Route::get('/admission/formulaire/admission', [App\Http\Controllers\AdmissionUserController::class, 'create'])->name('admission.create');
+// Route::get('/admissions', [App\Http\Controllers\AdmissionUserController::class, 'index'])->name('user.admission.index');
 
 
 // Résultats semestrielle

@@ -678,7 +678,7 @@ function afficherFormulaire() {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="mb-3">
-                        <label class="form-label">Quatrième 1</label>
+                        <label class="form-label">Quatrième année</label>
                         <select class="form-select @error('master_1') is-invalid @enderror" name="master_1" required>
                             <option>Selectionner la dernière année de validation</option>
                             <?php $currentYear = date('Y'); $startYear = 1960; for ($year = $currentYear; $year >= $startYear; $year--) { echo '<option value="' . $year . ' - ' . ($year + 1) . '">' . $year . '-' . ($year + 1) . '</option>'; } ?>
@@ -1032,7 +1032,7 @@ function afficherFormulaire() {
                 </div>
             </div>
         `;
-    } else if (typeElement === '8') {
+    } else if (typeElement === '9') {
         formContainer.innerHTML = `
         <!-- Attestations du DUEL2(CLASSIQUE) ou de SUCCES(LMD) -->
 
@@ -1194,10 +1194,9 @@ function afficherFormulaire() {
                 </div>
             </div>
 
-            <!-- releves de notes l1 et l3 -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="mb-3">
+            <!-- releves de notes l2 et l3 -->
+            <div class="row pb-3">
+                <div class="col-md-6">
                             <label class="form-label">Originale du relevé (2ème année)</label>
                             <input name="copie_releve_2" type="file" class="form-control @error('copie_releve_2') is-invalid @enderror dropify" data-height="100" required />
                             @error('copie_releve_2')
@@ -1205,11 +1204,8 @@ function afficherFormulaire() {
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
-                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="mb-3">
+                <div class="col-md-6">
                             <label class="form-label">Originale du relevé (3ème année)</label>
                             <input name="copie_releve_3" type="file" class="form-control @error('copie_releve_3') is-invalid @enderror dropify" data-height="100" required />
                             @error('copie_releve_3')
@@ -1217,8 +1213,6 @@ function afficherFormulaire() {
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -1420,7 +1414,7 @@ function afficherFormulaire() {
                 </div>
                 <div class="col-lg-6">
                     <div class="mb-3">
-                        <label class="form-label">Fiche de préinscription(plus récente)</label>
+                        <label class="form-label">Fiche de préinscription (plus récente)</label>
                         <input name="copie_fiche_preinscription" type="file" class="form-control @error('copie_fiche_preinscription') is-invalid @enderror dropify" data-height="100"
                             required />
                         @error('copie_fiche_preinscription')
@@ -1486,9 +1480,8 @@ function afficherFormulaire() {
             </div>
 
             <!-- releves de notes l3 et l4 -->
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col-lg-6">
-                    <div class="mb-3">
                             <label class="form-label">Originale du relevé (3ème année)</label>
                             <input name="copie_releve_3" type="file" class="form-control @error('copie_releve_3') is-invalid @enderror dropify" data-height="100" required />
                             @error('copie_releve_3')
@@ -1496,11 +1489,8 @@ function afficherFormulaire() {
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
-                    </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="mb-3">
                             <label class="form-label">Originale du relevé (4ème année)</label>
                             <input name="copie_releve_4" type="file" class="form-control @error('copie_releve_4') is-invalid @enderror dropify" data-height="100" required />
                             @error('copie_releve_4')
@@ -1508,8 +1498,6 @@ function afficherFormulaire() {
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
-                    </div>
                 </div>
             </div>
 

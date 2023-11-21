@@ -11,9 +11,13 @@ use App\Models\Etudiant;
 use App\Models\Matiere;
 use App\Models\Paiement;
 use App\Models\Reponse;
+use App\Models\User;
 use App\Models\Validation;
+use App\Notifications\DemandeNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
+use MercurySeries\Flashy\Flashy;
 
 class DemandeUserController extends Controller
 {
@@ -56,70 +60,18 @@ class DemandeUserController extends Controller
                 'copie_releve_3' => 'mimes:pdf|max:2048',
                 'copie_releve_4' => 'mimes:pdf|max:2048',
                 'copie_releve_5' => 'mimes:pdf|max:2048',
-                'licence_1' => 'required|string|max:255',
+                'licence_1' => 'nullable|string|max:255',
                 'licence_2' => 'nullable|string|max:255',
                 'licence_3' => 'nullable|string|max:255',
                 'master_1' => 'nullable|string|max:255',
                 'master_2' => 'nullable|string|max:255',
             ]);
 
-                if($request->hasFile('copie_releve_1'))
-                {
-                    foreach($request->file('copie_releve_1') as $image)
-                    {
-                        $name_file = $image->store('documents','public');
-                        $copie_releve_1[] = $name_file;
-                    }
-                }else{
-                    $copie_releve_1 = null;
-                }
+                
 
-                if($request->hasFile('copie_releve_2'))
-                {
-                    foreach($request->file('copie_releve_2') as $image)
-                    {
-                        $name_file = $image->store('documents','public');
-                        $copie_releve_2[] = $name_file;
-                    }
-                }else{
-                    $copie_releve_2 = null;
-                }
+               
 
-
-                if($request->hasFile('copie_releve_3'))
-                {
-                    foreach($request->file('copie_releve_3') as $image)
-                    {
-                        $name_file = $image->store('documents','public');
-                        $copie_releve_3[] = $name_file;
-                    }
-                }else{
-                    $copie_releve_3 = null;
-                }
-
-
-                if($request->hasFile('copie_releve_4'))
-                {
-                    foreach($request->file('copie_releve_4') as $image)
-                    {
-                        $name_file = $image->store('documents','public');
-                        $copie_releve_4[] = $name_file;
-                    }
-                }else{
-                    $copie_releve_4 = null;
-                }
-
-
-                if($request->hasFile('copie_releve_5'))
-                {
-                    foreach($request->file('copie_releve_5') as $image)
-                    {
-                        $name_file = $image->store('documents','public');
-                        $copie_releve_5[] = $name_file;
-                    }
-                }else{
-                    $copie_releve_5 = null;
-                }
+                
 
         // Les fichiers pour enregistrer les fichiers Documents
             $document = Document::create([
@@ -137,13 +89,14 @@ class DemandeUserController extends Controller
                 'copie_photo_identite' => $request->hasFile('copie_photo_identite') ? $request->file('copie_photo_identite')->store('documents', 'public') : null,
                 'originale_attestation' => $request->hasFile('originale_attestation') ? $request->file('originale_attestation')->store('documents', 'public') : null,
                 'copie_des_releves_notes' => $request->hasFile('copie_des_releves_notes') ? $request->file('copie_des_releves_notes')->store('documents', 'public') : null,
-                'copie_releve_1' => json_encode($copie_releve_1),
-                'copie_releve_2' => json_encode($copie_releve_2),
-                'copie_releve_3' => json_encode($copie_releve_3),
-                'copie_releve_4' => json_encode($copie_releve_4),
-                'copie_releve_5' => json_encode($copie_releve_5),
+                'copie_releve_1' => $request->hasFile('copie_releve_1') ? $request->file('copie_releve_1')->store('documents', 'public') : null,
+                'copie_releve_2' => $request->hasFile('copie_releve_2') ? $request->file('copie_releve_2')->store('documents', 'public') : null,
+                'copie_releve_3' => $request->hasFile('copie_releve_3') ? $request->file('copie_releve_3')->store('documents', 'public') : null,
+                'copie_releve_4' => $request->hasFile('copie_releve_4') ? $request->file('copie_releve_4')->store('documents', 'public') : null,
+                'copie_releve_5' => $request->hasFile('copie_releve_5') ? $request->file('copie_releve_5')->store('documents', 'public') : null,
             ]);
 
+            
         // Paiement
             $paiement = Paiement::create([
                 'preuve_paiement' => $request->hasFile('preuve_paiement') ? $request->file('preuve_paiement')->store('documents', 'public') : null,
@@ -203,6 +156,7 @@ class DemandeUserController extends Controller
             'nom' => $demande->etudiant->nom,
             'prenoms' => $demande->etudiant->prenoms,
         ];
+
         Mail::to($request->email)->send(new EnvoisCodeDeDemande($demande));
 
         // dd('ok');
@@ -239,7 +193,12 @@ class DemandeUserController extends Controller
 // echo("HTTP code: " . $response->getStatusCode() . PHP_EOL);
 // echo("Response body: " . $response->getBody()->getContents() . PHP_EOL);
         // Fin du code
-dd('ók');
+
+        $users = User::find(3); 
+        Notification::send($users, new DemandeNotification($demande));
+
+        
+        Flashy::message('Votre demande d\'acte académique a été enregistrer avec succès !!!');
         return redirect(route('relever.premiere')); 
     }
 }

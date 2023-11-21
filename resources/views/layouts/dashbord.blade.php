@@ -51,8 +51,8 @@
 
     <main id="main">
 
-        @yield('content')
 
+        @yield('content')
 
     </main>
 
@@ -65,9 +65,7 @@
     <script src="{{asset('client/vendor/purecounter/purecounter_vanilla.js')}}">
     </script>
 
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
     <script src="{{asset('client/vendor/aos/aos.js')}}"></script>
     <script src="{{asset('client/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -79,6 +77,9 @@
     <!-- Template Main JS File -->
     <script src="{{asset('client/js/main.js')}}"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    @include('flashy::message')
 </body>
 
 </html>

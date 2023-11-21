@@ -85,50 +85,7 @@
                     <span>Administrations</span>
                 </p>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <!-- <li class="nav-item dropdown">
-                        <a href="#ui-elements" data-toggle="collapse" aria-expanded="false"
-                            class="dropdown-toggle nav-link">
-                            <i class="fe fe-clipboard fe-16"></i>
-                            <span class="ml-3 item-text" style="font-size: 18px;">Demandes</span>
-                        </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="{{ route('demande.index') }}"><span
-                                        class="ml-1 item-text">Toutes les
-                                        demandes</span><span
-                                        class="badge badge-pill badge-primary">{{ session('toute_demande') }}</span>
-                                </a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="{{ route('demande.enattente') }}"><span
-                                        class="ml-1 item-text">
-                                        En attente<span
-                                            class="badge badge-pill badge-info">{{ session('enattente') }}</span>
-                                    </span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="{{ route('demande.valider') }}"><span
-                                        class="ml-1 item-text">
-                                        Valider <span
-                                            class="badge badge-pill badge-success">{{ session('valider') }}</span>
-                                    </span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="{{ route('demande.rejeter') }}"><span
-                                        class="ml-1 item-text">
-                                        Rejeter <span
-                                            class="badge badge-pill badge-danger">{{ session('rejeter') }}</span>
-                                    </span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li> -->
 
                     <li class="nav-item w-100">
                         <a class="nav-link" href="{{ route('demande.index') }}">
@@ -227,6 +184,7 @@
         <main role="main" class="main-content">
             <div class="container-fluid">
                 <div class="row">
+                    @include('flash.flashy')
                     @yield('content')
                 </div> <!-- .row -->
             </div>
@@ -234,6 +192,9 @@
         </main>
         <!-- main -->
     </div>
+
+
+
     <!-- .wrapper -->
     <script src="{{asset('admin/js/jquery.min.js')}}"></script>
     <script src="{{asset('admin/js/popper.min.js')}}"></script>

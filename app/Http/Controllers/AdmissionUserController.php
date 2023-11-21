@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admission;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 
 class AdmissionUserController extends Controller
 {
@@ -40,6 +41,13 @@ class AdmissionUserController extends Controller
             'fichier_admission' => null,
         ]);
 
-        return redirect(route('admission.index'))->with('success','Enregistrer avec succès un mail vous a été envoyer.');
+        Flashy::message('Votre demande d\'admission a été enregistrer avec succès !!!');
+        return redirect(route('admission.create'));
+    }
+
+
+    public function index()
+    {
+
     }
 }
