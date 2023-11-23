@@ -15,16 +15,17 @@ class EmailReponseRejeter extends Mailable
 
     public $data = []; // Données pour la vue
 
-    public function __construct(Array $demande)
+    public function __construct(Array $data)
     {
-        $this->data = $demande;
+        $this->data = $data;
     }
 
     public function build()
     {
         return $this->from("tigounzinsou@gmail.com") // L'expéditeur
                     ->subject("Réponse à votre demande d'acte académique") // Le sujet
-                    ->view('emails.rejeterdemande');
+                    ->view('emails.rejeterdemande')
+                    ;
     }
 
     /**

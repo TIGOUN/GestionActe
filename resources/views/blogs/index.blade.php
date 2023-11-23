@@ -52,7 +52,7 @@
 
                     <div class="entry-content">
                         <p>
-                            {{ \Illuminate\Support\Str::limit($post->sujet, $limit=350, $end = '...') }}
+                            {!! \Illuminate\Support\Str::limit($post->sujet, $limit=350, $end = '...') !!}
                         </p>
                         <div class="read-more">
                             <a href="{{ route('blog.show', $post->id) }}">Lire plus</a>
