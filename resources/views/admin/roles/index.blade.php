@@ -40,26 +40,30 @@
                     <table class="table datatables" id="dataTable-1">
                         <thead>
                             <tr>
-                                <th style="font-weight: 900; color:black;">Position</th>
-                                <th style="font-weight: 900; color:black;">Name</th>
+                                <!-- <th style="font-weight: 900; color:black;">Position</th> -->
+                                <th style="font-weight: 900; color:black;">Nom</th>
                                 <th style="color:black; font-weight:900;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($roles as $key => $role)
                             <tr>
-                                <td>{{ ++$i }}</td>
+                                <!-- <td>{{ ++$i }}</td> -->
                                 <td>{{ $role->name }}</td>
                                 <td>
-                                    @can('role-edit')
-                                    <a class="btn btn-primary" href="{{ route('role.edit',$role->id) }}"
-                                        style="font-size: 15px;">Editer</a>
+                                    @can('role-list')
+                                    <a class="btn btn-primary" href="{{ route('role.show',$role->id) }}"><i
+                                            class="fe fe-eye" style="font-size: 20px;"></i></a>
                                     @endcan
-                                    <a class="btn btn-success" href="{{ route('role.show',$role->id) }}"
-                                        style="font-size: 15px;">Voir</a>
+
+                                    @can('role-edit')
+                                    <a class="btn btn-light" href="{{ route('role.edit',$role->id) }}"><i
+                                            class="fe fe-edit" style="font-size: 20px;"></i></a>
+                                    @endcan
+
                                     @can('role-delete')
-                                    <a href="{{ route('role.delete',$role->id) }}" style="font-size: 15px;"
-                                        class="btn btn-danger"><i class="fe fe-trash-2"></i></a>
+                                    <a href="{{ route('role.delete',$role->id) }}" class="btn btn-danger"><i
+                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
                                     @endcan
                                 </td>
                             </tr>

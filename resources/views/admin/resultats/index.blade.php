@@ -64,13 +64,13 @@
                                 <td>{{ $semestrielle->created_at->format('d/m/y') }}</td>
                                 <td>
                                     @include('admin.resultats.edit',['semestrielle' => $semestrielle])
-                                    <a href="#" style="font-size: 15px;" class="btn btn-info" data-toggle="modal"
+                                    <a href="#" class="btn btn-light" data-toggle="modal"
                                         data-target=".bd-example-modal-lg-edit-{{$semestrielle->id}}">
-                                        <i class="fe fe-edit"></i></a>
+                                        <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
 
-                                    <a href="{{ route('sout.destroy',$semestrielle->id) }}" style="font-size: 15px;"
-                                        class="btn btn-danger"><i class="fe fe-trash-2"></i></a>
+                                    <a href="{{ route('sout.destroy',$semestrielle->id) }}" class="btn btn-danger"><i
+                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach

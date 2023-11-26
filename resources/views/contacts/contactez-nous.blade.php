@@ -76,6 +76,9 @@
 
         </div>
 
+        <iframe width="100%" height="100"
+            src="https://maps.google.com/maps?width=100%&height=50%&hl=en&q=6.3702928,2.3912362&ie=UTF8&t=&z=8&iwloc=B&output=embed&disableDefaultUI=true"
+            id="IframeMap" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
     </div>
 
 </section>

@@ -38,9 +38,11 @@
                                 <i>Facultés des Sciences Humaines et Sociales d'Université d'Abomey-Calavi
                                 </i>
                             </p>
-                        </div> <a href="https://fashs-uac.ecolebj.com" class="btn btn-primary btn-lg">Retourner à sur le
-                            site
+                        </div>
+                        <a href="https://fashs-uac.ecolebj.com" class="btn btn-primary btn-lg">Retourner à sur le site
                             de la FASHS-UAC</a>
+
+
                     </div>
                 </div>
             </div>

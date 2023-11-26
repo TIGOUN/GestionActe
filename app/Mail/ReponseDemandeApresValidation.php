@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class EmailReponseRejeter extends Mailable
+class ReponseDemandeApresValidation extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -20,20 +20,23 @@ class EmailReponseRejeter extends Mailable
         $this->data = $data;
     }
 
+    /**
+     * Get the message envelope.
+     */
     public function build()
     {
         return $this->from("tigounzinsou@gmail.com") // L'expéditeur
                     ->subject("Réponse à votre demande d'acte académique") // Le sujet
-                    ->view('emails.rejeterdemande')
+                    ->view('emails.apresvalidationdemande')
                     ;
     }
 
+    
     /**
      * Get the attachments for the message.
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
-    
     public function attachments(): array
     {
         return [];

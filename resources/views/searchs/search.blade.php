@@ -98,7 +98,7 @@
                     <div class="card shadow mb-4 alert alert-danger">
                         <div class="card-body">
                             <h3 class="h5 mb-1">Motif du refus</h3>
-                            <!-- <p class="text-muted mb-4">How to integrate the theme?</p> -->
+                            <p class="text-muted mb-4">{{$demande->reponse->motif_refus}}</p>
                         </div>
                     </div>
                 </div>

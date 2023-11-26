@@ -64,13 +64,13 @@
                                 <td>{{ $evaluation->created_at->format('d/m/y') }}</td>
                                 <td>
                                     @include('admin.evaluations.edit',['evaluation' => $evaluation])
-                                    <a href="#" style="font-size: 15px;" class="btn btn-info" data-toggle="modal"
+                                    <a href="#" class="btn btn-light" data-toggle="modal"
                                         data-target=".bd-example-modal-lg-edit-{{$evaluation->id}}">
-                                        <i class="fe fe-edit"></i></a>
+                                        <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
 
-                                    <a href="{{ route('eval.destroy',$evaluation->id) }}" style="font-size: 15px;"
-                                        class="btn btn-danger"><i class="fe fe-trash-2"></i></a>
+                                    <a href="{{ route('eval.destroy',$evaluation->id) }}" class="btn btn-danger"><i
+                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -78,7 +78,7 @@
                     </table>
                 </div>
             </div>
-        </div> <!-- simple table -->
+        </div>
     </div>
 </div>
 

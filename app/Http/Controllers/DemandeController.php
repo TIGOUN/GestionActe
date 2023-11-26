@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\EmailReponseRejeter;
 use App\Mail\EmailReponseValider;
 use App\Mail\EnvoisCodeDeDemande;
+use App\Mail\ReponseDemandeApresValidation;
 use App\Models\Demande;
 use App\Models\Document;
 use App\Models\Etudiant;
@@ -15,6 +16,7 @@ use App\Models\Validation;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use MercurySeries\Flashy\Flashy;
 use Vonage\Voice\NCCO\NCCO;
 
 class DemandeController extends Controller
@@ -34,11 +36,10 @@ class DemandeController extends Controller
             // dd($demande);
             if($demande)
             {
-                // dd($demande);
                 return view('searchs.search',compact('demande'));
             }else{
-                // dd('ok');
-                return view('searchs.search',compact('demande'));
+                Flashy::error('Aucun résultat trouvé pour cette demande');
+                return redirect(route('form.search'));
             }
     }
 
@@ -53,7 +54,19 @@ class DemandeController extends Controller
         $demande->update([
             'signature' => $request->signature,
         ]);
+
+        $data = [
+                    'code_demande' => $demande->code_demande,
+                    'nom' => $demande->etudiant->nom,
+                    'prenoms' => $demande->etudiant->prenoms,
+                    'motif_refus' => $request->motif_refus,
+                    'images' => 'client/img/lo.png'
+                ];
+
+                // Mail::to($demande->etudiant->email)->send(new EmailReponseValider($data));
+
         
+        Flashy::message('Demande signé avec succès, vous pouvez télécharger votre demande maintenant !!!');
         return view('searchs.search',compact('demande'));
     }
 
@@ -114,8 +127,8 @@ class DemandeController extends Controller
                     'statut_reponse' => "Valider"
                 ]);
                 
-                // Mail::to($demande->etudiant->email)->send(new EmailReponseValider($demande));
-
+                
+                
             // Debut
 
             // $client = new Client();
@@ -154,73 +167,44 @@ class DemandeController extends Controller
 
             // Fin
 
-// $client = new Client();
-// $JWT = "75qROH1Zjvg7ozeG";
-// $response = $client->post('https://api.nexmo.com/v1/calls', [
-//     'headers' => [
-//         'Authorization' => 'Bearer ' . $JWT,
-//         'Content-Type' => 'application/json',
-//     ],
-//     'json' => [
-//         'to' => [
-//             [
-//                 'type' => 'phone',
-//                 'number' => +22991275862,
-//             ],
-//         ],
-//         'from' => [
-//             'type' => 'phone',
-//             'number' => +22969360869,
-//         ],
-//         'ncco' => [
-//             [
-//                 'action' => 'talk',
-//                 'text' => "Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales d'Abomey-Calavi. Votre demande d\'acte académique enregistré sous le numéro ".$demande->code_demande." a été traité. Merci !!!",
-//             ],
-//         ],
-//     ],
-// ]);
-
-// // Vous pouvez accéder à la réponse ici, par exemple :
-// $response->getBody()->getContents();
 
 
 
 
 
-// dfghjkl;dfghjkldfghjkxxxxxxxxxxxxxxxxxxxxxxx
 
-// $keypair = new \Vonage\Client\Credentials\Keypair(
-//     file_get_contents('75qROH1Zjvg7ozeG'),
-//     'db605a07'
+// $filePath = public_path('/admin/keys/private.key');
+// $privateKey = file_get_contents($filePath);
+// $apiKey = 'db605a07';
+
+// $keypair = new \Vonage\Client\Credentials\Keypair($privateKey, $apiKey);
+
+// $client = new \Vonage\Client($keypair);
+
+// $outboundCall = new \Vonage\Voice\OutboundCall(
+//     new \Vonage\Voice\Endpoint\Phone(+22991275862),
+//     new \Vonage\Voice\Endpoint\Phone(+22969360869)
 // );
 
-$filePath = public_path('/admin/keys/private.key');
-$privateKey = file_get_contents($filePath);
-$apiKey = 'db605a07';
+// $ncco = new NCCO();
+// $ncco->addAction(new \Vonage\Voice\NCCO\Action\Talk("Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales d'Abomey-Calavi. Votre demande d\'acte académique enregistré sous le numéro ".$demande->code_demande." a été traité. Merci !!!"));
+// $outboundCall->setNCCO($ncco);
 
-$keypair = new \Vonage\Client\Credentials\Keypair($privateKey, $apiKey);
+// $response = $client->voice()->createOutboundCall($outboundCall);
 
-$client = new \Vonage\Client($keypair);
+// var_dump($response);
 
-$outboundCall = new \Vonage\Voice\OutboundCall(
-    new \Vonage\Voice\Endpoint\Phone(+22991275862),
-    new \Vonage\Voice\Endpoint\Phone(+22969360869)
-);
+        $data = [
+                    'code_demande' => $demande->code_demande,
+                    'nom' => $demande->etudiant->nom,
+                    'prenoms' => $demande->etudiant->prenoms,
+                    'motif_refus' => $request->motif_refus,
+                    'images' => 'client/img/lo.png'
+                ];
 
-$ncco = new NCCO();
-$ncco->addAction(new \Vonage\Voice\NCCO\Action\Talk("Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales d'Abomey-Calavi. Votre demande d\'acte académique enregistré sous le numéro ".$demande->code_demande." a été traité. Merci !!!"));
-$outboundCall->setNCCO($ncco);
+                Mail::to($demande->etudiant->email)->send(new ReponseDemandeApresValidation($data));
 
-$response = $client->voice()->createOutboundCall($outboundCall);
-
-var_dump($response);
-
-
-
-
-
-
+                Flashy::message('La réponse à la demande a été bien envoyé à l\'étudiant !!!');
                 return redirect(route('demande.index'));
             }else if($request->status=="rejeter"){
                 
@@ -236,28 +220,39 @@ var_dump($response);
                 $demande->update([
                     'statut_reponse' => "Rejeter"
                 ]);
+
+                $data = [
+                    'code_demande' => $demande->code_demande,
+                    'nom' => $demande->etudiant->nom,
+                    'prenoms' => $demande->etudiant->prenoms,
+                    'motif_refus' => $request->motif_refus,
+                    'images' => 'client/img/lo.png'
+                    ];
+
+
+                Mail::to($demande->etudiant->email)->send(new EmailReponseRejeter($data));
                 
-                Mail::to($demande->etudiant->email)->send(new EmailReponseRejeter($demande));
+                Flashy::message('La réponse à la demande a été bien envoyé à l\'étudiant !!!');
                 return redirect(route('demande.index'));
             }
         }
 
-    public function enattente()
-    {
-        $demandes = Demande::where('statut_reponse','En attente')->get();
-        return view('admin.demandes.enattente',compact('demandes'));
-    }
+    // public function enattente()
+    // {
+    //     $demandes = Demande::where('statut_reponse','En attente')->get();
+    //     return view('admin.demandes.enattente',compact('demandes'));
+    // }
 
-    public function valider()
-    {
-        $demandes = Demande::where('statut_reponse','Valider')->get();
-        return view('admin.demandes.index',compact('demandes'));
-    }
+    // public function valider()
+    // {
+    //     $demandes = Demande::where('statut_reponse','Valider')->get();
+    //     return view('admin.demandes.index',compact('demandes'));
+    // }
 
-    public function rejeter()
-    {
-        $demandes = Demande::where('statut_reponse','Rejeter')->get();
-        return view('admin.demandes.index',compact('demandes'));
-    }
+    // public function rejeter()
+    // {
+    //     $demandes = Demande::where('statut_reponse','Rejeter')->get();
+    //     return view('admin.demandes.index',compact('demandes'));
+    // }
   
 }

@@ -32,8 +32,8 @@
 
                     <div class="mb-3">
                         <label class="form-label" style="font-size: large;">Rédigez votre article</label>
-                        <textarea required name="sujet" class="form-control @error('sujet') is-invalid @enderror"
-                            id="editor" rows="10"
+                        <textarea name="sujet" class="ckeditor form-control @error('sujet') is-invalid @enderror"
+                            rows="10"
                             placeholder="Redigez votre article ici">{!! old('sujet') ? old('sujet') : $post->sujet !!}</textarea>
                         @error('sujet')
                         <span class="invalid-feedback" role="alert">
@@ -65,67 +65,9 @@
 </div>
 
 
-<script>
-// editor
-var editor = document.getElementById('editor');
-if (editor) {
-    var toolbarOptions = [
-        [{
-            'font': []
-        }],
-        [{
-            'header': [1, 2, 3, 4, 5, 6, false]
-        }],
-        ['bold', 'italic', 'underline', 'strike'],
-        ['blockquote', 'code-block'],
-        [{
-                'header': 1
-            },
-            {
-                'header': 2
-            }
-        ],
-        [{
-                'list': 'ordered'
-            },
-            {
-                'list': 'bullet'
-            }
-        ],
-        [{
-                'script': 'sub'
-            },
-            {
-                'script': 'super'
-            }
-        ],
-        [{
-                'indent': '-1'
-            },
-            {
-                'indent': '+1'
-            }
-        ], // outdent/indent
-        [{
-            'direction': 'rtl'
-        }], // text direction
-        [{
-                'color': []
-            },
-            {
-                'background': []
-            }
-        ], // dropdown with defaults from theme
-        [{
-            'align': []
-        }],
-        ['clean'] // remove formatting button
-    ];
-    var quill = new Quill(editor, {
-        modules: {
-            toolbar: toolbarOptions
-        },
-        theme: 'snow'
-    });
-}
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.ckeditor').ckeditor();
+});
 </script>

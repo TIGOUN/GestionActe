@@ -62,7 +62,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.blog.show',$post->id) }}" class="btn btn-info">
+                                            <a href="{{ route('admin.blog.show',$post->id) }}" class="btn btn-primary">
                                                 <i class="fe fe-eye" style="font-size: 20px;"></i></a>
 
                                             @include('admin.blogs.edit',['post' => $post])

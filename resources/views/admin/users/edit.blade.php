@@ -46,7 +46,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Name:</strong>
-                                {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control'))
+                                {!! Form::text('name', null, array('placeholder' => 'Nom','class' => 'form-control'))
                                 !!}
                             </div>
                         </div>
@@ -60,14 +60,15 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Password:</strong>
-                                {!! Form::password('password', array('placeholder' => 'Password','class' =>
+                                {!! Form::password('password', array('placeholder' => 'Mot de passe','class' =>
                                 'form-control')) !!}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Confirm Password:</strong>
-                                {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class'
+                                {!! Form::password('confirm-password', array('placeholder' => 'Confirmer un mot de
+                                passe','class'
                                 => 'form-control')) !!}
                             </div>
                         </div>
@@ -79,7 +80,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Mettre à jour cet utilisateur</button>
                         </div>
                     </div>
                     {!! Form::close() !!}

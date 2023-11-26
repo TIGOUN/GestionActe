@@ -9,9 +9,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
+                <div class="row justify-content-end mx-4">
                     <span style="text-align: end;">Champs obligatoires <span style="color: red;">*</span> </span>
                 </div>
+
                 <form action="{{route('departement.store')}}" method="POST">
                     @csrf
 
