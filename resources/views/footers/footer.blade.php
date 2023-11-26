@@ -45,10 +45,10 @@
                       <h4>Contactez-nous</h4>
                       <p>
                           RÉPUBLIQUE DU BÉNIN <br>
-                          Abomey-Calavi, Département FASHS-UAC<br>
+                          Abomey-Calavi ,UAC ,Département FASHS-UAC<br>
                           <br><br>
-                          <strong>Phone:</strong> +229 00 00 00 00<br>
-                          <strong>Email:</strong> fashs@uac.bj<br>
+                          <strong>Phone:</strong> +229 67 65 65 90<br>
+                          <strong>Email:</strong> fashs.uac@uac.bj<br>
                       </p>
                   </div>
               </div>

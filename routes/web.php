@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'welcome'])->name('welcome.index');
 
+Route::get('/la-vie-estudiane', [App\Http\Controllers\EstudineController::class, 'show'])->name('estudiantine.show');
+
+
 Auth::routes();
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use MercurySeries\Flashy\Flashy;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -42,6 +43,8 @@ class RoleController extends Controller
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
     
+        Flashy::message('Le role a été crée avec succès !!!');
+
         return redirect()->route('role.index');
     }
 
@@ -63,6 +66,7 @@ class RoleController extends Controller
             ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
             ->all();
     
+
         return view('admin.roles.edit',compact('role','permission','rolePermissions'));
     }
 
@@ -79,6 +83,8 @@ class RoleController extends Controller
     
         $role->syncPermissions($request->input('permission'));
     
+        Flashy::message('Le role a été mise à jour avec succès !!!');
+
         return redirect()->route('role.index');
     }
 
@@ -86,6 +92,9 @@ class RoleController extends Controller
     {
         // DB::table("roles")->where('id',$id)->delete();
         $role->delete();
+
+        Flashy::message('Le role a été supprimer avec succès !!!');
+
         return redirect()->route('role.index');
     }
     

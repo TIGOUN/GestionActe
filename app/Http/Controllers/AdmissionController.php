@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admission;
 use App\Models\Demande;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use Symfony\Component\Uid\NilUlid;
 
 class AdmissionController extends Controller
@@ -70,6 +71,9 @@ class AdmissionController extends Controller
                 'motif_refus' => null,
                 'status' => 'Accepté'
             ]);
+
+        Flashy::message('La réponse a été envoyer avec succès !!!');
+
             
             return redirect(route('admission.index'));
         }else if($request->status=="rejeter"){
@@ -84,6 +88,8 @@ class AdmissionController extends Controller
                 'status' => 'Rejeté'
             ]);
 
+        Flashy::message('La réponse a été envoyer avec succès !!!');
+
             return redirect(route('admission.index'));
         }
     }
@@ -94,6 +100,9 @@ class AdmissionController extends Controller
     public function destroy(Admission $admission)
     {
         $admission->delete();
+
+        Flashy::message('La réponse a été envoyer avec succès !!!');
+
         return back();
     }
 }

@@ -5,7 +5,6 @@
 
                 <header class="section-header">
                     <h1>Nos Professeurs</h1>
-                    <!-- <h2>Team</h2> -->
                     <p>Ils témoignent</p>
                 </header>
 
@@ -14,7 +13,7 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
                             <div class="member-img">
-                                <img src="{{asset('client/img/team/team-1.jpg')}}" class="img-fluid" alt="">
+                                <!-- <img src="{{asset('client/img/team/team-1.jpg')}}" class="img-fluid" alt=""> -->
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -23,10 +22,11 @@
                                 </div>
                             </div>
                             <div class="member-info">
-                                <h4>Walter White</h4>
-                                <span>Chief Executive Officer</span>
-                                <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut.
-                                    Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+                                <h4>Enseignant</h4>
+                                <!-- <span>Chief Executive Officer</span> -->
+                                <p>Enseignants passionnés, notre dévouement au savoir crée un environnement propice à
+                                    l'apprentissage, inspirant nos étudiants à exceller et à découvrir le potentiel
+                                    infini du savoir.</p>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                         <div class="member">
                             <div class="member-img">
-                                <img src="{{asset('client/img/team/team-2.jpg')}}" class="img-fluid" alt="">
+                                <!-- <img src="{{asset('client/img/team/team-2.jpg')}}" class="img-fluid" alt=""> -->
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -43,10 +43,11 @@
                                 </div>
                             </div>
                             <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
-                                <span>Product Manager</span>
-                                <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima
-                                    suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
+                                <h4>Enseignant</h4>
+                                <!-- <span>Product Manager</span> -->
+                                <p>Enseignants investis, notre dévouement envers l'épanouissement académique se traduit
+                                    par une passion débordante pour partager le savoir. Notre engagement soutenu offre à
+                                    nos étudiants un cadre propice à l'excellence et à l'exploration intellectuelle.</p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +55,7 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                         <div class="member">
                             <div class="member-img">
-                                <img src="{{asset('client/img/team/team-3.jpg')}}" class="img-fluid" alt="">
+                                <!-- <img src="{{asset('client/img/team/team-3.jpg')}}" class="img-fluid" alt=""> -->
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -63,10 +64,12 @@
                                 </div>
                             </div>
                             <div class="member-info">
-                                <h4>William Anderson</h4>
-                                <span>CTO</span>
-                                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt.
-                                    Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
+                                <h4>Enseignant</h4>
+                                <!-- <span>CTO</span> -->
+                                <p>Au cœur de notre mission éducative, en tant qu'enseignants passionnés, nous
+                                    favorisons un environnement propice à l'apprentissage. Notre engagement indéfectible
+                                    encourage nos étudiants à exceller et à explorer les multiples facettes du savoir.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -74,7 +77,7 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
                         <div class="member">
                             <div class="member-img">
-                                <img src="{{asset('client/img/team/team-4.jpg')}}" class="img-fluid" alt="">
+                                <!-- <img src="{{asset('client/img/team/team-4.jpg')}}" class="img-fluid" alt=""> -->
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -83,10 +86,11 @@
                                 </div>
                             </div>
                             <div class="member-info">
-                                <h4>Amanda Jepson</h4>
-                                <span>Accountant</span>
-                                <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut
-                                    aliquid doloremque ut possimus ipsum officia.</p>
+                                <h4>Enseignant</h4>
+                                <!-- <span>Accountant</span> -->
+                                <p>Enseignants passionnément dévoués, notre mission est de créer un environnement
+                                    d'apprentissage inspirant. Notre amour du savoir stimule nos étudiants à exceller et
+                                    à embrasser les multiples facettes de la connaissance.</p>
                             </div>
                         </div>
                     </div>
@@ -95,4 +99,4 @@
 
             </div>
 
-        </section><!-- End Team Section -->
+        </section>

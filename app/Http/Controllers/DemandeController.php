@@ -127,72 +127,45 @@ class DemandeController extends Controller
                     'statut_reponse' => "Valider"
                 ]);
                 
-                
+                $cont = $demande->etudiant->contacts;
                 
             // Debut
 
-            // $client = new Client();
-            // // Remplacez les valeurs suivantes par les vôtres
-            // $baseUrl = 'https://dmq6r1.api.infobip.com/tts/3/single';
-            // $authorization = 'App 3dde520a26cf6a4d67712ef72a291e9d-5f0080ac-317e-4bb8-a344-136dcd89a556';
+            $client = new Client();
+            // Remplacez les valeurs suivantes par les vôtres
+            $baseUrl = 'https://dmq6r1.api.infobip.com/tts/3/single';
+            $authorization = 'App 3dde520a26cf6a4d67712ef72a291e9d-5f0080ac-317e-4bb8-a344-136dcd89a556';
 
-            // $data = [
-            //     "text" => "Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales d'Abomey-Calavi. Votre demande d\'acte académique enregistré sous le numéro ".$demande->code_demande." a été traité. Merci !!!",
-            //     "language" => "en",
-            //     "voice" => [
-            //         "name" => "Joanna",
-            //         "gender" => "female",
-            //     ],
-            //     "from" => "22961074420",
-            //     "to" => "22991275862",
-            // ];
+            $data = [
+                "text" => "Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales d'Abomey-Calavi. Votre demande d\'acte académique enregistré sous le numéro ".$demande->code_demande." a été traité. Merci !!!",
+                "language" => "en",
+                "voice" => [
+                    "name" => "Joanna",
+                    "gender" => "female",
+                ],
+                "from" => "22961074420",
+                "to" => "$cont",
+            ];
 
-            // try {
-            //     $response = $client->post($baseUrl, [
-            //         'headers' => [
-            //             'Authorization' => $authorization,
-            //             'Content-Type' => 'application/json',
-            //             'Accept' => 'application/json',
-            //         ],
-            //         'json' => $data,
-            //     ]);
+            try {
+                $response = $client->post($baseUrl, [
+                    'headers' => [
+                        'Authorization' => $authorization,
+                        'Content-Type' => 'application/json',
+                        'Accept' => 'application/json',
+                    ],
+                    'json' => $data,
+                ]);
 
-            //     // Vous pouvez traiter la réponse ici
-            //     $responseBody = $response->getBody()->getContents();
-            //     return $responseBody;
-            // } catch (\Exception $e) {
-            //     // Gérer les erreurs ici
-            //     return $e->getMessage();
-            // }
+                // Vous pouvez traiter la réponse ici
+                $responseBody = $response->getBody()->getContents();
+                // return $responseBody;
+            } catch (\Exception $e) {
+                // Gérer les erreurs ici
+                return $e->getMessage();
+            }
 
             // Fin
-
-
-
-
-
-
-
-// $filePath = public_path('/admin/keys/private.key');
-// $privateKey = file_get_contents($filePath);
-// $apiKey = 'db605a07';
-
-// $keypair = new \Vonage\Client\Credentials\Keypair($privateKey, $apiKey);
-
-// $client = new \Vonage\Client($keypair);
-
-// $outboundCall = new \Vonage\Voice\OutboundCall(
-//     new \Vonage\Voice\Endpoint\Phone(+22991275862),
-//     new \Vonage\Voice\Endpoint\Phone(+22969360869)
-// );
-
-// $ncco = new NCCO();
-// $ncco->addAction(new \Vonage\Voice\NCCO\Action\Talk("Bonjour, ici le service de scolarité de la Faculté des Sciences Humaines et Sociales d'Abomey-Calavi. Votre demande d\'acte académique enregistré sous le numéro ".$demande->code_demande." a été traité. Merci !!!"));
-// $outboundCall->setNCCO($ncco);
-
-// $response = $client->voice()->createOutboundCall($outboundCall);
-
-// var_dump($response);
 
         $data = [
                     'code_demande' => $demande->code_demande,
@@ -237,22 +210,5 @@ class DemandeController extends Controller
             }
         }
 
-    // public function enattente()
-    // {
-    //     $demandes = Demande::where('statut_reponse','En attente')->get();
-    //     return view('admin.demandes.enattente',compact('demandes'));
-    // }
-
-    // public function valider()
-    // {
-    //     $demandes = Demande::where('statut_reponse','Valider')->get();
-    //     return view('admin.demandes.index',compact('demandes'));
-    // }
-
-    // public function rejeter()
-    // {
-    //     $demandes = Demande::where('statut_reponse','Rejeter')->get();
-    //     return view('admin.demandes.index',compact('demandes'));
-    // }
   
 }

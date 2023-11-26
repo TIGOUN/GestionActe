@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use MercurySeries\Flashy\Flashy;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -54,6 +55,9 @@ class UserController extends Controller
         ]);
 
         $user->assignRole($request->input('roles'));
+
+        Flashy::message('L\'utilisateur a été crée avec succès !!!');
+
         return redirect()->route('user.index');
     }
 
@@ -93,6 +97,8 @@ class UserController extends Controller
         
         $user->assignRole($request->input('roles'));
 
+        Flashy::message('L\'utilisateur a été mise à jour avec succès !!!');
+
             return redirect()->route('user.index');
     }
 
@@ -100,6 +106,9 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+
+        Flashy::message('L\'utilisateur a été supprimer avec succès !!!');
+
         return redirect()->route('user.index');
     }
 }

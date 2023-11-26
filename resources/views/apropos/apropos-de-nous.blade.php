@@ -10,16 +10,29 @@
                             <h3>C'est la FASHS-UAC</h3>
                             <h2>Faculté des Sciences Humaines et Sociales - d'Université d'Abomey-Calavi</h2>
                             <p>
-                                Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
-                                consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam
-                                et est corrupti.
+                                La faculté des sciences humaines et sociales (Fashs) est une unité de formation et de
+                                recherche qui fait partie de l'université d'Abomey-Calavi. Tout comme la Faculté des
+                                lettres, langues, arts et communications, elle est une émanation de la scission de la
+                                faculté des lettres, arts et sciences humaines (FLASH) en deux entités distinctes.
+                                <br><br>
+                                La fashs est un établissement public de formation générale, académique, professionnelle
+                                et
+                                de recherche dont les enseignements donnés dans chacun des départements sont orientés
+                                vers la formation de culture générale, académique et de compétences spécifiques. La
+                                fashs à le jour par l’arrêté n°2016-731/MESRS/DC/SGM/SA/SGG16 du 18 octobre 2016.
+                                <br><br>
+                                La faculté des sciences humaines et sociales est dirigée par une équipe composée d'un
+                                doyen et d'un vice-doyen nommés en conseil des ministres par le gouvernement du
+                                Bénin3,4. Dans cette faculté, on retrouve les départements de géographie et aménagement
+                                du territoire, d'histoire et archéologie, de sociologie-Anthropologie, de psychologie et
+                                sciences de l’éducation et de philosophie.
                             </p>
                             <div class="text-center text-lg-start">
-                                <a href="#"
+                                <!-- <a href="#"
                                     class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                                     <span>En savoir plus</span>
                                     <i class="bi bi-arrow-right"></i>
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </div>
@@ -32,4 +45,4 @@
                 </div>
             </div>
 
-        </section><!-- End About Section -->
+        </section>

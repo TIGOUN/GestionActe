@@ -15,21 +15,21 @@
                         <div class="info-box">
                             <i class="bi bi-geo-alt"></i>
                             <h3>Adresse</h3>
-                            <p>A108 Adam Street,<br>New York, NY 535022</p>
+                            <p>Bénin,Atlantique<br>Abomey-Calavi,Université d'Abomey-Calavi</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="info-box">
                             <i class="bi bi-telephone"></i>
                             <h3>Nos téléphones</h3>
-                            <p>+229 00 00 00 00<br>+229 00 00 00 00</p>
+                            <p>+229 67 65 65 90</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="info-box">
                             <i class="bi bi-envelope"></i>
                             <h3>Notre adresse electronique</h3>
-                            <p>info@example.com<br>contact@example.com</p>
+                            <p>fashs.uac@uac.bj</p>
                         </div>
                     </div>
                     <div class="col-md-6">

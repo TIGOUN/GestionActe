@@ -4,8 +4,6 @@
 
                 <header class="section-header">
                     <h1 class="text-center">STATISTIQUES</h1>
-                    <!-- <h2>Services</h2> -->
-                    <!-- <p>Voici nos différents services offert sur la plateforme</p> -->
                 </header>
 
                 <div class="row gy-4">
@@ -14,7 +12,7 @@
                         <div class="count-box">
                             <i class="bi bi-emoji-smile"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="10000"
+                                <span data-purecounter-start="0" data-purecounter-end="10561"
                                     data-purecounter-duration="1" class="purecounter"></span>
                                 <p>Etudiants</p>
                             </div>
@@ -25,7 +23,7 @@
                         <div class="count-box">
                             <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1"
                                     class="purecounter"></span>
                                 <p>Formations</p>
                             </div>
@@ -36,7 +34,7 @@
                         <div class="count-box">
                             <i class="bi bi-headset" style="color: #15be56;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
                                     class="purecounter"></span>
                                 <p>Distinctions</p>
                             </div>
