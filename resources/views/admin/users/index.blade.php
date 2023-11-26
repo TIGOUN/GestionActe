@@ -35,7 +35,7 @@
                     <table class="table datatables" id="dataTable-1">
                         <thead>
                             <tr>
-                                <th style="font-weight: 900; color:black;">Position</th>
+                                <!-- <th style="font-weight: 900; color:black;">Position</th> -->
                                 <th style="font-weight: 900; color:black;">Name</th>
                                 <th style="font-weight: 900; color:black;">Email</th>
                                 <th style="font-weight: 900; color:black;">Roles</th>
@@ -45,7 +45,7 @@
                         <tbody>
                             @foreach($data as $key => $user)
                             <tr>
-                                <td>{{ ++$i }}</td>
+                                <!-- <td>{{ ++$i }}</td> -->
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
@@ -55,12 +55,15 @@
                                     @endforeach
                                     @endif
                                 </td>
-                                <td><a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}"
-                                        style="font-size: 15px;">Editer</a>
-                                    <a class="btn btn-success" href="{{ route('user.show',$user->id) }}"
-                                        style="font-size: 15px;">Voir</a>
-                                    <a href="{{ route('user.delete',$user->id) }}" style="font-size: 15px;"
-                                        class="btn btn-danger"><i class="fe fe-trash-2"></i></a>
+                                <td>
+                                    <a class="btn btn-primary" href="{{ route('user.show',$user->id) }}"><i
+                                            class="fe fe-eye" style="font-size: 20px;"></i></a>
+
+                                    <a class="btn btn-light" href="{{ route('user.edit',$user->id) }}"><i
+                                            class="fe fe-edit" style="font-size: 20px;"></i></a>
+
+                                    <a href="{{ route('user.delete',$user->id) }}" class="btn btn-danger"><i
+                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach

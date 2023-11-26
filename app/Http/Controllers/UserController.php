@@ -44,7 +44,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         $user = User::create([
@@ -54,8 +54,7 @@ class UserController extends Controller
         ]);
 
         $user->assignRole($request->input('roles'));
-        return redirect()->route('user.index')
-        ->with('success','User created successfully');
+        return redirect()->route('user.index');
     }
 
 
@@ -94,15 +93,13 @@ class UserController extends Controller
         
         $user->assignRole($request->input('roles'));
 
-            return redirect()->route('user.index')
-            ->with('success','User updated successfully');
+            return redirect()->route('user.index');
     }
 
 
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('user.index')
-        ->with('success','User deleted successfully');
+        return redirect()->route('user.index');
     }
 }

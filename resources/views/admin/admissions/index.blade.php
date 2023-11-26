@@ -73,13 +73,13 @@
                                 </td>
                                 <td>
                                     @include('admin.admissions.show',['admission' => $admission])
-                                    <a href="#" style="font-size: 15px;" class="btn btn-info" data-toggle="modal"
+                                    <a href="#" class="btn btn-light" data-toggle="modal"
                                         data-target=".bd-example-modal-lg-show-{{$admission->id}}">
-                                        <i class="fe fe-edit"></i></a>
+                                        <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
 
-                                    <a href="{{ route('admission.destroy',$admission->id) }}" style="font-size: 15px;"
-                                        class="btn btn-danger"><i class="fe fe-trash-2"></i></a>
+                                    <a href="{{ route('admission.destroy',$admission->id) }}" class="btn btn-danger"><i
+                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach

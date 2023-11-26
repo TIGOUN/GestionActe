@@ -62,13 +62,13 @@
                                 <td>{{ $soutenance->created_at->format('d/m/y') }}</td>
                                 <td>
                                     @include('admin.soutenances.edit',['soutenance' => $soutenance])
-                                    <a href="#" style="font-size: 15px;" class="btn btn-info" data-toggle="modal"
+                                    <a href="#" class="btn btn-light" data-toggle="modal"
                                         data-target=".bd-example-modal-lg-edit-{{$soutenance->id}}">
-                                        <i class="fe fe-edit"></i></a>
+                                        <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
 
-                                    <a href="{{ route('sout.destroy',$soutenance->id) }}" style="font-size: 15px;"
-                                        class="btn btn-danger"><i class="fe fe-trash-2"></i></a>
+                                    <a href="{{ route('sout.destroy',$soutenance->id) }}" class="btn btn-danger"><i
+                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach

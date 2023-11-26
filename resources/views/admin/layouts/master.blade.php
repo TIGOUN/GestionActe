@@ -36,7 +36,27 @@
                 <i class="fe fe-menu navbar-toggler-icon"></i>
             </button>
 
+
+            <div class="text-center">
+                <h5>Vous etes connecté(e) {{ Auth::user()->name }}</h5>
+            </div>
+
+
             <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
+                        <i class="fe fe-sun fe-16" style="font-size: 20px;"></i>
+                    </a>
+                </li>
+
+                @unless(auth()->user()->unreadNotifications->isEmpty())
+                <li class="nav-item nav-notif">
+                    <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
+                        <span class="fe fe-bell fe-16" style="font-size: 20px;"></span>
+                        <span class=""><b>{{auth()->user()->unreadNotifications->count()}} notification(s)</b></span>
+                    </a>
+                </li>
+                @endunless
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink"
@@ -61,136 +81,207 @@
                 </li>
             </ul>
         </nav>
-        <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
-            <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
-                <i class="fe fe-x"><span class="sr-only"></span></i>
-            </a>
-            <nav class="vertnav navbar navbar-light">
-                <!-- nav bar -->
-                <div class="w-100 mb-4 d-flex">
-                    <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="#">
-                        <img src="{{asset('client/img/lo.png')}}" height="100" width="100" alt="" srcset="">
-                    </a>
+
+
+        <!-- Fenetre de notifications -->
+        <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="defaultModalLabel">Notifications</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @foreach(auth()->user()->unreadNotifications as $notification)
+                        <div class="list-group list-group-flush my-n3">
+                            <div class="list-group-item bg-transparent">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <span class="fe fe-box fe-24"></span>
+                                    </div>
+                                    <div class="col">
+                                        <small><strong>{{ $notification->data['message'] }}</strong></small>
+                                        <!-- <div class="my-0 text-muted small">Package is zipped and uploaded</div> -->
+                                        <small class="badge badge-pill badge-light text-muted">1m ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item dropdown">
-                        <a href="{{ route('home') }}" class="nav-link">
-                            <i class="fe fe-grid fe-16"></i>
-                            <span class="ml-3 item-text" style="font-size: 18px;">Tableau de bord</span><span
-                                class="sr-only"></span>
-                        </a>
-                    </li>
-                </ul>
-                <p class="text-muted nav-heading mt-4 mb-1">
-                    <span>Administrations</span>
-                </p>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-
-
-                    <li class="nav-item w-100">
-                        <a class="nav-link" href="{{ route('demande.index') }}">
-                            <i class="fe fe-clipboard fe-16"></i>
-                            <span class="ml-3 item-text" style="font-size: 18px;">Toutes
-                                les demandes</span>
-                            <!-- <span class="badge badge-pill badge-primary">{{ session('toute_demande') }}</span> -->
-                        </a>
-                    </li>
-
-
-
-                    <li class="nav-item w-100">
-                        <a class="nav-link" href="{{ route('admission.index') }}">
-                            <i class="fe fe-file-text fe-16"></i>
-                            <span class="ml-3 item-text" style="font-size: 18px;">Admissions</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item dropdown">
-                        <a href="#ui-elements-pro" data-toggle="collapse" aria-expanded="false"
-                            class="dropdown-toggle nav-link">
-                            <i class="fe fe-share-2 fe-16"></i>
-                            <span class="ml-3 item-text" style="font-size: 18px;">Publier</span>
-                        </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements-pro">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.blog.index') }}">
-                                    <i class="fe fe-globe fe-16"></i>
-                                    <span class="ml-3 item-text">Articles</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('evaluation.index') }}">
-                                    <i class="fe fe-book-open fe-16"></i>
-                                    <span class="ml-3 item-text">Examens</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('soutenance.index') }}">
-                                    <i class="fe fe-award fe-16"></i>
-                                    <span class="ml-3 item-text">Soutenances</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('resultat.index') }}">
-                                    <i class="fe fe-airplay fe-16"></i>
-                                    <span class="ml-3 item-text">Résultats</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="nav-item w-100">
-                        <a class="nav-link" href="{{ route('acte.index') }}">
-                            <i class="fe fe-layers fe-16"></i>
-                            <span class="ml-3 item-text" style="font-size: 18px;">Actes académiques</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item w-100">
-                        <a class="nav-link" href="{{ route('departement.index') }}">
-                            <i class="fe fe-home fe-16"></i>
-                            <span class="ml-3 item-text" style="font-size: 18px;">Départements</span>
-                        </a>
-                    </li>
-
-                    <p class="text-muted nav-heading mt-4 mb-1">
-                        <span>Paramètres</span>
-                    </p>
-
-                    <li class="nav-item w-100">
-                        <a class="nav-link" href="{{ route('user.index') }}">
-                            <i class="fe fe-user-plus fe-16"></i>
-                            <span class="ml-3 item-text" style="font-size: 18px;">Utilisateurs</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item w-100">
-                        <a class="nav-link" href="{{ route('role.index') }}">
-                            <i class="fe fe-key fe-16"></i>
-                            <span class="ml-3 item-text" style="font-size: 18px;">Roles</span>
-                        </a>
-                    </li>
-                </ul>
-
-            </nav>
-        </aside>
-        <main role="main" class="main-content">
-            <div class="container-fluid">
-                <div class="row">
-                    @include('flash.flashy')
-                    @yield('content')
-                </div> <!-- .row -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Tout
+                        effacer</button>
+                </div>
             </div>
-            <!-- .container-fluid -->
-        </main>
-        <!-- main -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
+        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
+            <i class="fe fe-x"><span class="sr-only"></span></i>
+        </a>
+        <nav class="vertnav navbar navbar-light">
+
+            <div class="w-100 mb-4 d-flex">
+                <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="#">
+                    <img src="{{asset('client/img/lo.png')}}" height="100" width="100" alt="" srcset="">
+                </a>
+            </div>
+
+
+
+
+
+
+
+
+
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item dropdown">
+                    <a href="{{ route('home') }}" class="nav-link">
+                        <i class="fe fe-grid fe-16"></i>
+                        <span class="ml-3 item-text" style="font-size: 18px;">Tableau de bord</span><span
+                            class="sr-only"></span>
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted nav-heading mt-4 mb-1">
+                <span>Administrations</span>
+            </p>
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+
+                @can('Demande-list')
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="{{ route('demande.index') }}">
+                        <i class="fe fe-clipboard fe-16"></i>
+                        <span class="ml-3 item-text" style="font-size: 18px;">Toutes
+                            les demandes</span>
+                    </a>
+                </li>
+                @endcan
+
+
+                @can('Admission-list')
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="{{ route('admission.index') }}">
+                        <i class="fe fe-file-text fe-16"></i>
+                        <span class="ml-3 item-text" style="font-size: 18px;">Admissions</span>
+                    </a>
+                </li>
+                @endcan
+
+
+                <li class="nav-item dropdown">
+                    <a href="#ui-elements-pro" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle nav-link">
+                        <i class="fe fe-share-2 fe-16"></i>
+                        <span class="ml-3 item-text" style="font-size: 18px;">Publiers</span>
+                    </a>
+                    <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements-pro">
+                        @can('post-list')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.blog.index') }}">
+                                <i class="fe fe-globe fe-16"></i>
+                                <span class="ml-3 item-text">Articles</span>
+                            </a>
+                        </li>
+                        @endcan
+
+                        @can('ProgrammationEvaluation-list')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('evaluation.index') }}">
+                                <i class="fe fe-book-open fe-16"></i>
+                                <span class="ml-3 item-text">Examens</span>
+                            </a>
+                        </li>
+                        @endcan
+
+                        @can('ProgrammationSoutenance-list')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('soutenance.index') }}">
+                                <i class="fe fe-award fe-16"></i>
+                                <span class="ml-3 item-text">Soutenances</span>
+                            </a>
+                        </li>
+                        @endcan
+
+                        @can('ResultatSemestrielle-list')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('resultat.index') }}">
+                                <i class="fe fe-airplay fe-16"></i>
+                                <span class="ml-3 item-text">Résultats</span>
+                            </a>
+                        </li>
+                        @endcan
+
+                    </ul>
+                </li>
+
+                @can('Acte-create')
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="{{ route('acte.index') }}">
+                        <i class="fe fe-layers fe-16"></i>
+                        <span class="ml-3 item-text" style="font-size: 18px;">Actes académiques</span>
+                    </a>
+                </li>
+                @endcan
+
+                @can('Departement-list')
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="{{ route('departement.index') }}">
+                        <i class="fe fe-home fe-16"></i>
+                        <span class="ml-3 item-text" style="font-size: 18px;">Départements</span>
+                    </a>
+                </li>
+                @endcan
+
+                @can('user-list')
+                <p class="text-muted nav-heading mt-4 mb-1">
+                    <span>Paramètres</span>
+                </p>
+
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="{{ route('user.index') }}">
+                        <i class="fe fe-user-plus fe-16"></i>
+                        <span class="ml-3 item-text" style="font-size: 18px;">Utilisateurs</span>
+                    </a>
+                </li>
+                @endcan
+
+                <!-- @can('role-list') -->
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="{{ route('role.index') }}">
+                        <i class="fe fe-key fe-16"></i>
+                        <span class="ml-3 item-text" style="font-size: 18px;">Roles</span>
+                    </a>
+                </li>
+                <!-- @endcan -->
+            </ul>
+
+        </nav>
+    </aside>
+    <main role="main" class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                @include('flash.flashy')
+                @yield('content')
+            </div> <!-- .row -->
+        </div>
+        <!-- .container-fluid -->
+    </main>
+    <!-- main -->
     </div>
 
 

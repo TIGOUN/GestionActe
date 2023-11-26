@@ -63,6 +63,7 @@
                                             <a href="javascript(0)" data-toggle="modal"
                                                 data-target=".bd-example-modal-lg-edit-sous-{{$childCategory->id}}">
                                                 <i class="fe fe-edit text-decoration-none"></i></a>
+
                                             <a href="{{ route('acte.delete',$childCategory->id) }}"><i
                                                     class="fe fe-trash-2 text-decoration-none"
                                                     style="color: red;"></i></a>
@@ -80,12 +81,12 @@
                                 <td>
                                     <!-- Editer un département -->
                                     @include('admin.actes.edit',['acte' => $acte])
-                                    <a href="#" style="font-size: 15px;" class="btn btn-info" data-toggle="modal"
+                                    <a href="#" class="btn btn-lignt" data-toggle="modal"
                                         data-target=".bd-example-modal-lg-edit-{{$acte->id}}">
-                                        <i class="fe fe-edit"></i></a>
+                                        <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
-                                    <a href="{{ route('acte.delete',$acte->id) }}" style="font-size: 15px;"
-                                        class="btn btn-danger"><i class="fe fe-trash-2"></i></a>
+                                    <a href="{{ route('acte.delete',$acte->id) }}" class="btn btn-danger"><i
+                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endif

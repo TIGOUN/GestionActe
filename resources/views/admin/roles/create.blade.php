@@ -48,7 +48,8 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Nom du role :</strong>
-                                {!! Form::text('nom du role', null, array('placeholder' => 'Name','class' =>
+                                {!! Form::text('name', null,
+                                array('placeholder' => 'Nom du role utilisateur','class' =>
                                 'form-control'))
                                 !!}
                             </div>

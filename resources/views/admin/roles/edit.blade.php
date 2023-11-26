@@ -47,7 +47,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Nom du role:</strong>
-                                {!! Form::text('nom du role', null, array('placeholder' => 'Name','class' =>
+                                {!! Form::text('name', null, array('placeholder' => 'Nom du role utilisateur','class' =>
                                 'form-control'))
                                 !!}
                             </div>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">Créer ce role</button>
+                            <button type="submit" class="btn btn-primary">Mettre à jour ce role</button>
                         </div>
                     </div>
                     {!! Form::close() !!}

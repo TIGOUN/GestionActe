@@ -57,12 +57,13 @@
                                 <td>
                                     <!-- Editer un département -->
                                     @include('admin.departements.edit',['departement' => $departement])
-                                    <a href="#" style="font-size: 15px;" class="btn btn-info" data-toggle="modal"
+                                    <a href="#" class="btn btn-light" data-toggle="modal"
                                         data-target=".bd-example-modal-lg-edit-{{$departement->id}}">
-                                        Editer</a>
+                                        <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
                                     <a href="{{ route('departement.delete',$departement->id) }}"
-                                        style="font-size: 15px;" class="btn btn-danger">Delete</a>
+                                        class="btn btn-danger"><i class="fe fe-trash-2"
+                                            style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach

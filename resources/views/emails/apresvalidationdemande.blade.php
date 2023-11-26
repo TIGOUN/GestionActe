@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASHS-UAC</title>
+</head>
+
+<body>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <section class="mail-seccess section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-12">
+                    <div class="text-center mx-auto">
+                        <img src="https://fashs-uac.ecolebj.com/{{ $data['motif_refus'] }}" alt="">
+                    </div>
+                    <div class="success-inner">
+
+                        <h1><i class="fa fa-envelope"></i><span>Réponse de la FASHS_UAC à votre demande d'acte
+                                académique</span></h1>
+
+
+                        <p>
+                            Mr/Mdme {{ $data['nom'] }}&nbsp;{{ $data['prenoms'] }}, nous avons le plaisir de vous
+                            annoncer que votre demande d'acte académique enregistrer sous le code de demande
+                            <u><b>{{ $data['code_demande'] }}</b></u> est maintenant
+                            disponible. Vous pouvez consulter votre résultat sur notre plateforme. N'hésitez pas à nous
+                            contacter pour toute question. Merci !
+                        </p>
+
+                        <p>Suivez, désormais votre demande sur notre site avec votre code de demande.</p>
+
+                        <div class="mt-2 mb-2">
+                            <p class="text-end">
+                                <i>Facultés des Sciences Humaines et Sociales d'Université d'Abomey-Calavi
+                                </i>
+                            </p>
+                        </div>
+                        <a href="https://fashs-uac.ecolebj.com" class="btn btn-primary btn-lg">Retourner à sur le site
+                            de la FASHS-UAC</a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
