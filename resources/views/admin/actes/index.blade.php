@@ -85,8 +85,9 @@
                                         data-target=".bd-example-modal-lg-edit-{{$acte->id}}">
                                         <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
-                                    <a href="{{ route('acte.delete',$acte->id) }}" class="btn btn-danger"><i
-                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
+                                    <a onclick="return confirmation(event)" href="{{ route('acte.delete',$acte->id) }}"
+                                        class="btn btn-danger"><i class="fe fe-trash-2"
+                                            style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endif

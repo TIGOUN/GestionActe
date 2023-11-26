@@ -68,11 +68,6 @@
                                             @endif
                                         </td>
                                         <td>
-
-                                            <!--<a href="#" class="btn btn-warning" data-toggle="modal"
-                                                data-target=".bd-example-modal-lg-rapport-{{$demande->id}}">
-                                                <i class="fe fe-file-text" style="font-size: 20px;"></i></a> -->
-
                                             @include('admin.demandes.show',['demande' => $demande])
                                             <a href="#" class="btn btn-primary" data-toggle="modal"
                                                 data-target=".bd-example-modal-lg-show-{{$demande->id}}">

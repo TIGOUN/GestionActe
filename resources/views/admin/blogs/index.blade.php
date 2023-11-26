@@ -70,7 +70,8 @@
                                                 data-target=".bd-example-modal-lg-edit-{{$post->id}}">
                                                 <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
-                                            <a href="{{ route('admin.blog.delete', $post->id) }}"
+                                            <a onclick="return confirmation(event)"
+                                                href="{{ route('admin.blog.delete', $post->id) }}"
                                                 class="btn btn-danger">
                                                 <i class="fe fe-trash-2" style="font-size: 20px;"></i></a>
                                         </td>

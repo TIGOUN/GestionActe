@@ -6,16 +6,17 @@ use App\Mail\EmailContactezNous;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use MercurySeries\Flashy\Flashy;
 
 class ContactController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('permission:Contact-list|Contact-create|Contact-edit|Contact-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:Contact-create', ['only' => ['create','store']]);
-        $this->middleware('permission:Contact-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:Contact-delete', ['only' => ['destroy']]);
-    }
+    // function __construct()
+    // {
+    //     $this->middleware('permission:Contact-list|Contact-create|Contact-edit|Contact-delete', ['only' => ['index','show']]);
+    //     $this->middleware('permission:Contact-create', ['only' => ['create','store']]);
+    //     $this->middleware('permission:Contact-edit', ['only' => ['edit','update']]);
+    //     $this->middleware('permission:Contact-delete', ['only' => ['destroy']]);
+    // }
     public function contact()
     {
         return view('contacts.index');
@@ -30,7 +31,11 @@ class ContactController extends Controller
                 'message' => $request->input('message'),
             ]);
 
+            $contact = $request->all();
+
         Mail::to("tigounzinsou@gmail.com")->send(new EmailContactezNous($contact));
+
+        Flashy::message('Votre requete a été bien envoyé à la FASHS-UAC !!!');
         return back();
     }
 

@@ -78,8 +78,9 @@
                                         <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
 
-                                    <a href="{{ route('admission.destroy',$admission->id) }}" class="btn btn-danger"><i
-                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
+                                    <!-- <a onclick="return confirmation(event)"
+                                        href="{{ route('admission.destroy',$admission->id) }}" class="btn btn-danger"><i
+                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a> -->
                                 </td>
                             </tr>
                             @endforeach

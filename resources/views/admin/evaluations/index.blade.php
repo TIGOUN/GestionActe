@@ -69,7 +69,8 @@
                                         <i class="fe fe-edit" style="font-size: 20px;"></i></a>
 
 
-                                    <a href="{{ route('eval.destroy',$evaluation->id) }}" class="btn btn-danger"><i
+                                    <a onclick="return confirmation(event)"
+                                        href="{{ route('eval.destroy',$evaluation->id) }}" class="btn btn-danger"><i
                                             class="fe fe-trash-2" style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>

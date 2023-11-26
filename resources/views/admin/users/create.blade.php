@@ -59,14 +59,14 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Password:</strong>
+                                <strong>Mot de passe : </strong>
                                 {!! Form::password('password', array('placeholder' => 'Mot de passe','class' =>
                                 'form-control')) !!}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Confirm Password:</strong>
+                                <strong>Confirmer le mot de passe : </strong>
                                 {!! Form::password('confirm-password', array('placeholder' =>
                                 'Confirmer le mot de passe','class'
                                 => 'form-control')) !!}

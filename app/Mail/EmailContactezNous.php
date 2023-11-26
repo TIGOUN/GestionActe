@@ -22,8 +22,8 @@ class EmailContactezNous extends Mailable
 
     public function build()
     {
-        return $this->from("tigounzinsou@gmail.com") // L'expéditeur
-                    ->subject("Prise de conctact") // Le sujet
+        return $this->from($this->data['email']) // L'expéditeur
+                    ->subject($this->data['sujet']) // Le sujet
                     ->view('emails.contactezecole');
     }
 

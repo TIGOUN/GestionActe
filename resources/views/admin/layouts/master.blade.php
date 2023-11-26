@@ -283,9 +283,30 @@
     </main>
     <!-- main -->
     </div>
+    <script type="text/javascript">
+    function confirmation(ev) {
+        ev.preventDefault();
 
+        var urlToredirect = ev.currentTarget.getAttribute('href');
 
+        swal({
+            title: "Etes-vous sur de vouloir supprimer ?",
+            text: "Cette action est irréversible.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
 
+        }).then((willCancel) => {
+            if (willCancel) {
+                window.location.href = urlToredirect;
+            }
+        });
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- .wrapper -->
     <script src="{{asset('admin/js/jquery.min.js')}}"></script>
     <script src="{{asset('admin/js/popper.min.js')}}"></script>

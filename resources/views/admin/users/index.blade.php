@@ -62,8 +62,9 @@
                                     <a class="btn btn-light" href="{{ route('user.edit',$user->id) }}"><i
                                             class="fe fe-edit" style="font-size: 20px;"></i></a>
 
-                                    <a href="{{ route('user.delete',$user->id) }}" class="btn btn-danger"><i
-                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
+                                    <a href="{{ route('user.delete',$user->id) }}" class="btn btn-danger"
+                                        onclick="return confirmation(event)"><i class="fe fe-trash-2"
+                                            style="font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach

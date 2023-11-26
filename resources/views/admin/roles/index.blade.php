@@ -62,8 +62,9 @@
                                     @endcan
 
                                     @can('role-delete')
-                                    <a href="{{ route('role.delete',$role->id) }}" class="btn btn-danger"><i
-                                            class="fe fe-trash-2" style="font-size: 20px;"></i></a>
+                                    <a href="{{ route('role.delete',$role->id) }}" onclick="return confirmation(event)"
+                                        class="btn btn-danger"><i class="fe fe-trash-2"
+                                            style="font-size: 20px;"></i></a>
                                     @endcan
                                 </td>
                             </tr>

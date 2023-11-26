@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CreateUserMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use MercurySeries\Flashy\Flashy;
 use Spatie\Permission\Models\Role;
 
@@ -55,6 +57,11 @@ class UserController extends Controller
         ]);
 
         $user->assignRole($request->input('roles'));
+
+        $info = $request->all();
+
+        Mail::to($request->email)->send(new CreateUserMail($info));
+
 
         Flashy::message('L\'utilisateur a été crée avec succès !!!');
 
