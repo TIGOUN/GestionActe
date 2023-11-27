@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Departement;
 use App\Models\ResultatSemestrielle;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 
 class ResultatSemestrielleController extends Controller
 {
@@ -25,11 +26,7 @@ class ResultatSemestrielleController extends Controller
         return view('admin.resultats.index', compact('departements','semestrielles'));
     }
 
-    public function index_prog()
-    {
-        $semestrielles = ResultatSemestrielle::latest()->get();
-        return view('services.semestrielle', compact('semestrielles'));
-    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -61,6 +58,8 @@ class ResultatSemestrielleController extends Controller
             'fichier' => $request->hasFile('fichier') ? $request->file('fichier')->store('documents', 'public') : null,
         ]);
 
+                Flashy::message('La programmation est ajouté avec succès');
+
         return back();
     }
 
@@ -83,8 +82,10 @@ class ResultatSemestrielleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ResultatSemestrielle $resultatSemestrielle)
+    public function update(Request $request, $resultatSemestrielle)
     {
+        $resultatSemestrielle = ResultatSemestrielle::find($resultatSemestrielle);
+
         $this->validate($request,[
             'annee_academique' => 'required|string|max:255',
             'departement_id' => 'required|exists:departements,id',
@@ -101,16 +102,22 @@ class ResultatSemestrielleController extends Controller
             'fichier' => $request->hasFile('fichier') ? $request->file('fichier')->store('documents', 'public') : $resultatSemestrielle->fichier,
         ]);
 
-        return back();
+        Flashy::message('La programmation est mise à jour avec succès');
 
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ResultatSemestrielle $resultatSemestrielle)
+    public function destroy($resultatSemestrielle)
     {
+        $resultatSemestrielle = ResultatSemestrielle::find($resultatSemestrielle);
+
         $resultatSemestrielle->delete();
+
+        Flashy::message('La programmation est supprimé avec succès');
+
         return back();
     }
 }

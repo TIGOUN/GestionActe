@@ -10,9 +10,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row text-lg-end">
+                <div class="row justify-content-end mx-4">
                     <span style="text-align: end;">Champs obligatoires <span style="color: red;">*</span> </span>
                 </div>
+
 
                 <form action="{{route('departement.update',$departement->id)}}" method="POST">
                     @csrf

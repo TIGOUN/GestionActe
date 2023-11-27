@@ -18,7 +18,6 @@
                 <form action="{{route('resultat.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-
                     <div class="mb-3">
                         <label class="form-label" style="font-size: large;">Année académique<span
                                 style="color:red;">*</span></label>
@@ -51,8 +50,6 @@
                         @enderror
                     </div>
 
-
-
                     <div class="mb-3">
                         <label class="form-label" style="font-size: large;">Niveau scolaire<span
                                 style="color:red;">*</span></label>
@@ -72,8 +69,6 @@
                         </span>
                         @enderror
                     </div>
-
-
 
                     <div class="mb-3">
                         <label for="simpleinput" style="font-size: large;" class="form-label">Session<span

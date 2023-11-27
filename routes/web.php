@@ -133,15 +133,15 @@ Route::get('/admission/formulaire/admission', [App\Http\Controllers\AdmissionUse
 
 
 // Résultats semestrielle
-Route::get('/résultat-semestrielle', [App\Http\Controllers\ResultatSemestrielleController::class, 'index_prog'])->name('semestriel.index');
+Route::get('/resultat-semestrielle', [App\Http\Controllers\ServiceController::class, 'index_progResul'])->name('semestriel.index');
 Route::get('/résultat-semestrielle/suppression{semestrielle}', [App\Http\Controllers\ResultatSemestrielleController::class, 'destroy'])->name('semestriel.destroy');
 
 
 // Programmations des soutenances
-Route::get('/programmations-des-evaluations', [App\Http\Controllers\ProgrammationEvaluationController::class, 'index_prog'])->name('eval.index');
+Route::get('/programmations-des-evaluations', [App\Http\Controllers\ServiceController::class, 'index_progEva'])->name('eval.index');
 
 // Programmations des résultats semestrielles
-Route::get('/programmations-des-soutenances', [App\Http\Controllers\ProgrammationSoutenanceController::class, 'index_prog'])->name('sout.index');
+Route::get('/programmations-des-soutenances', [App\Http\Controllers\ServiceController::class, 'index_progSout'])->name('sout.index');
 
 
 

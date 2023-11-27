@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProgrammationSoutenance;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 
 class ProgrammationSoutenanceController extends Controller
 {
@@ -56,6 +57,7 @@ class ProgrammationSoutenanceController extends Controller
             'fichier' => $request->hasFile('fichier') ? $request->file('fichier')->store('documents', 'public') : null,
         ]);
 
+        Flashy::message('La programmation de la soutenance est ajouté avec succès');
         return back();
     }
 
@@ -78,8 +80,10 @@ class ProgrammationSoutenanceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProgrammationSoutenance $programmationSoutenance)
+    public function update(Request $request, $programmationSoutenance)
     {
+        $programmationSoutenance = ProgrammationSoutenance::find($programmationSoutenance);
+
         $this->validate($request,[
             'session' => 'required|string|max:255',
             'date_debut' => 'required|string|max:255',
@@ -93,15 +97,19 @@ class ProgrammationSoutenanceController extends Controller
             'fichier' => $request->hasFile('fichier') ? $request->file('fichier')->store('documents', 'public') : $programmationSoutenance->fichier,
         ]);
 
+        Flashy::message('La programmation de la soutenance est mise à jour avec succès');
         return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProgrammationSoutenance $programmationSoutenance)
+    public function destroy($programmationSoutenance)
     {
+        $programmationSoutenance = ProgrammationSoutenance::find($programmationSoutenance);
         $programmationSoutenance->delete();
+
+        Flashy::message('La programmation de la soutenance est supprimé avec succès');
         return back();
     }
 }

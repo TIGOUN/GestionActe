@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProgrammationEvaluation;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 
 class ProgrammationEvaluationController extends Controller
 {
@@ -59,6 +60,7 @@ class ProgrammationEvaluationController extends Controller
             'fichier' => $request->hasFile('fichier') ? $request->file('fichier')->store('documents', 'public') : null,
         ]);
 
+        Flashy::message('La programmation des évaluations est crée avec succès');
         return back();
     }
 
@@ -81,8 +83,11 @@ class ProgrammationEvaluationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProgrammationEvaluation $programmationEvaluation)
+    public function update(Request $request, $programmationEvaluation)
     {
+        $programmationEvaluation = ProgrammationEvaluation::find($programmationEvaluation);
+
+        // dd($programmationEvaluation);
         $this->validate($request,[
             'session' => 'required|string|max:255',
             'classe' => 'required|string|max:255',
@@ -97,14 +102,22 @@ class ProgrammationEvaluationController extends Controller
             'date_fin' => $request->input('date_fin'),
             'fichier' => $request->hasFile('fichier') ? $request->file('fichier')->store('documents', 'public') : $programmationEvaluation->fichier,
         ]);
+
+
+        Flashy::message('La programmation des évaluations est mise à jour avec succès');
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProgrammationEvaluation $programmationEvaluation)
+    public function destroy($programmationEvaluation)
     {
+        $programmationEvaluation = ProgrammationEvaluation::find($programmationEvaluation);
+
         $programmationEvaluation->delete();
+
+        Flashy::message('La programmation des évaluations est supprimé avec succès');
         return back();
     }
 }

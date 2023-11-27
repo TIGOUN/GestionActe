@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 
 class PostController extends Controller
 {
@@ -50,6 +51,7 @@ class PostController extends Controller
             'images' => $request->hasFile('images') ? $request->file('images')->store('images_blogs', 'public') : null,
         ]);
 
+        Flashy::message('Le post est ajouté avec succès');
         return redirect(route('admin.blog.index'));
     }
 
@@ -65,17 +67,8 @@ class PostController extends Controller
         return view('blogs.show', compact('post'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    // public function edit(Post $post)
-    // {
-    //     return view('blogs.edit', compact('post'));
-    // }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Post $post)
     {
         $this->validate($request,[
@@ -90,6 +83,7 @@ class PostController extends Controller
             'images' => $request->hasFile('images') ? $request->file('images')->store('images_blogs', 'public') : null,
         ]);
 
+        Flashy::message('Le post est mise à jour avec succès');
         return view('blogs.show', compact('post'));
     }
 
@@ -99,6 +93,8 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
+
+        Flashy::message('Le post est supprimé avec succès');
         return redirect(route('admin.blog.index'));
     }
 }

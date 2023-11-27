@@ -94,18 +94,16 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" height="100%">
                         @foreach(auth()->user()->unreadNotifications as $notification)
                         <div class="list-group list-group-flush my-n3">
                             <div class="list-group-item bg-transparent">
                                 <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <span class="fe fe-box fe-24"></span>
-                                    </div>
+
                                     <div class="col">
                                         <small><strong>{{ $notification->data['message'] }}</strong></small>
-                                        <!-- <div class="my-0 text-muted small">Package is zipped and uploaded</div> -->
-                                        <small class="badge badge-pill badge-light text-muted">1m ago</small>
+                                        <small
+                                            class="badge badge-pill badge-light text-muted">{{ $notification->created_at }}</small>
                                     </div>
                                 </div>
                             </div>
@@ -282,7 +280,11 @@
         <!-- .container-fluid -->
     </main>
     <!-- main -->
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    @include('flashy::message')
+
+
     <script type="text/javascript">
     function confirmation(ev) {
         ev.preventDefault();
