@@ -25,11 +25,7 @@ class ProgrammationEvaluationController extends Controller
     }
 
 
-    public function index_prog()
-    {
-        $evaluations = ProgrammationEvaluation::latest()->get();
-        return view('services.evaluation', compact('evaluations'));
-    }
+    
 
     /**
      * Show the form for creating a new resource.

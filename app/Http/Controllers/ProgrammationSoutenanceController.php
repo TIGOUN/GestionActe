@@ -24,11 +24,7 @@ class ProgrammationSoutenanceController extends Controller
         return view('admin.soutenances.index', compact('soutenances'));
     }
 
-    public function index_prog()
-    {
-        $soutenances = ProgrammationSoutenance::latest()->get();
-        return view('services.soutenance', compact('soutenances'));
-    }
+    
 
     /**
      * Show the form for creating a new resource.

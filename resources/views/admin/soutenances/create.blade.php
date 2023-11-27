@@ -29,7 +29,6 @@
                         @enderror
                     </div>
 
-
                     <div class="mb-3">
                         <label for="simpleinput" class="form-label">Date de début<span
                                 style="color:red;">*</span></label>
@@ -42,8 +41,6 @@
                         @enderror
                     </div>
 
-
-
                     <div class="mb-3">
                         <label for="simpleinput" class="form-label">Date de fin<span style="color:red;">*</span></label>
                         <input type="date" name="date_fin" required
@@ -54,7 +51,6 @@
                         </span>
                         @enderror
                     </div>
-
 
                     <div class="mb-3">
                         <label class="form-label" style="font-size: large;">Fichier<span

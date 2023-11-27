@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-header w-100">
-                    <h5 class="modal-title" id="defaultModalLabel">Modifier cette programmation d'évaluations</h5>
+                    <h5 class="modal-title" id="defaultModalLabel">Modifier cette programmation de résultats</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -96,8 +96,7 @@
                     <div class="mb-3">
                         <label class="form-label" style="font-size: large;">Fichier<span
                                 style="color:red;">*</span></label>
-                        <input type="file" required name="fichier"
-                            class="form-control @error('fichier') is-invalid @enderror">
+                        <input type="file" name="fichier" class="form-control @error('fichier') is-invalid @enderror">
                         @error('fichier')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
