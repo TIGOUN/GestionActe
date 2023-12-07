@@ -21,22 +21,25 @@
                   <div class="col-lg-2 col-6 footer-links">
                       <h4>Liens utiles</h4>
                       <ul>
-                          <li><i class="bi bi-chevron-right"></i> <a href="#">Acceuil</a></li>
-                          <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                          <li><i class="bi bi-chevron-right"></i> <a href="#">Blog</a></li>
+                          <li><i class="bi bi-chevron-right"></i> <a href="{{url('/')}}">Acceuil</a></li>
+                          <li><i class="bi bi-chevron-right"></i> <a href="{{route('service.index')}}">Services</a></li>
+                          <li><i class="bi bi-chevron-right"></i> <a href="{{route('blog.index')}}">Blog</a></li>
 
-                          <li><i class="bi bi-chevron-right"></i> <a href="#">Utilisations des services</a>
+                          <li><i class="bi bi-chevron-right"></i> <a href="{{url('/')}}">Utilisations des services</a>
                           </li>
-                          <li><i class="bi bi-chevron-right"></i> <a href="#">Termes de confidentialités</a></li>
+                          <li><i class="bi bi-chevron-right"></i> <a href="{{url('/')}}">Termes de
+                                  confidentialités</a></li>
                       </ul>
                   </div>
 
                   <div class="col-lg-2 col-6 footer-links">
                       <h4>Services</h4>
                       <ul>
-                          <li><i class="bi bi-chevron-right"></i> <a href="#">Admissions</a></li>
-                          <li><i class="bi bi-chevron-right"></i> <a href="#">Demande</a></li>
-                          <li><i class="bi bi-chevron-right"></i> <a href="#">Contactez-nous</a></li>
+                          <li><i class="bi bi-chevron-right"></i> <a href="{{route('admission.create')}}">Admissions</a>
+                          </li>
+                          <li><i class="bi bi-chevron-right"></i> <a href="{{route('relever.premiere')}}">Demande</a>
+                          </li>
+                          <li><i class="bi bi-chevron-right"></i> <a href="{{route('contact')}}">Contactez-nous</a></li>
 
                       </ul>
                   </div>

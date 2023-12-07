@@ -143,23 +143,18 @@ Route::get('/programmations-des-evaluations', [App\Http\Controllers\ServiceContr
 // Programmations des résultats semestrielles
 Route::get('/programmations-des-soutenances', [App\Http\Controllers\ServiceController::class, 'index_progSout'])->name('sout.index');
 
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
 
 // contactez-nous  #012970
 Route::get('/qui-sommes-nous', [App\Http\Controllers\ContactController::class, 'somme'])->name('qui.somme');
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact'])->name('contact');
 Route::post('/contacts', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
 
-
 // Afficher tous les services
 Route::get('/tous-les-services', [App\Http\Controllers\ServiceController::class, 'index'])->name('service.index');
 
 // Relevés de notes 
-Route::get('/services/releves-de-notes/premiere-annee', [App\Http\Controllers\ReleverController::class, 'premiere'])->name('relever.premiere');
+Route::get('/services/demande/actes/académiques', [App\Http\Controllers\ReleverController::class, 'premiere'])->name('relever.premiere');
 Route::get('/services/releves-de-notes/deuxieme-annee', [App\Http\Controllers\ReleverController::class, 'deuxieme'])->name('relever.deuxieme');
 Route::get('/services/releves-de-notes/troisieme-annee', [App\Http\Controllers\ReleverController::class, 'troisieme'])->name('relever.troisieme');
 Route::get('/services/releves-de-notes/quatrieme-annee', [App\Http\Controllers\ReleverController::class, 'quatrieme'])->name('relever.quatrieme');
@@ -168,3 +163,14 @@ Route::get('/services/releves-de-notes/doctorat', [App\Http\Controllers\ReleverC
 
 // Demandes sauvegarder
 Route::post('/demandes/store', [App\Http\Controllers\DemandeUserController::class, 'store'])->name('demande.store');
+
+// Filieres
+Route::get('/filieres/Histoire et Archéologie', [App\Http\Controllers\FiliereController::class, 'histoire'])->name('relever.histoire');
+Route::get('/filieres/Géographie et Aménagement', [App\Http\Controllers\FiliereController::class, 'geographie'])->name('relever.geographie');
+Route::get('/filieres/Science de l\'Éducation', [App\Http\Controllers\FiliereController::class, 'education'])->name('relever.education');
+Route::get('/filieres/Sociologie et Anthropologie', [App\Http\Controllers\FiliereController::class, 'sociologie'])->name('relever.sociologie');
+Route::get('/filieres/Philosophie', [App\Http\Controllers\FiliereController::class, 'philosophie'])->name('relever.philosophie');
+Route::get('/filieres/Psychologie', [App\Http\Controllers\FiliereController::class, 'psychologie'])->name('relever.psychologie');
+Route::get('/filieres/Études prospectives et développement', [App\Http\Controllers\FiliereController::class, 'etudesetprospectives'])->name('relever.etudesetprospectives');
+Route::get('/filieres/Métier de l\'enseignement en philosophie', [App\Http\Controllers\FiliereController::class, 'enseignant'])->name('relever.enseignant');
+Route::get('/filieres/Genre et projet de développement', [App\Http\Controllers\FiliereController::class, 'genre'])->name('relever.genre');

@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row feture-tabs" data-aos="fade-up">
             <div class="col-lg-6">
-                <h3>Un mot du doyen de la FASHS</h3>
+                <h3>Un mot de la doyenne de la FASHS</h3>
 
                 <ul class="nav nav-pills mb-3">
                     <li>
-                        <a class="nav-link active" data-bs-toggle="pill" href="#tab1">Le directeur s'exprime</a>
+                        <a class="nav-link active" data-bs-toggle="pill" href="#tab1">La doyenne s'exprime</a>
                     </li>
 
                 </ul>
@@ -15,7 +15,7 @@
 
                     <div class="tab-pane fade show active" id="tab1">
                         <p>Dans son mot de bienvenue, la Doyenne de cette toute nouvelle faculté de l’Université
-                            d’Abomey-Calavi, le Professeur Odile Dossou Guègègbé, a rappelé que la naissance de cette
+                            d’Abomey-Calavi, le Professeur Monique OUASSA KOUARO, a rappelé que la naissance de cette
                             faculté est une manière pour le Gouvernement d’apporter d’une part, des solutions aux
                             problèmes d’effectif pléthorique d’étudiants dans les entités de l’Uac, au problème
                             d’insuffisance drastique enseignants, d’infrastructures et d’équipements. D’autre part, il
