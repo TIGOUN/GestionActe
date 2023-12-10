@@ -38,7 +38,7 @@
                     <div class="mb-3">
                         <label class="form-label">Nom</label>
                         <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror"
-                            maxlength="20" value="{{ old('nom') }}" required>
+                            maxlength="20" value="{{ old('nom') }}" required placeholder="Votre nom">
                         @error('nom')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -51,7 +51,7 @@
                     <div class="mb-3">
                         <label class="form-label">Prénoms</label>
                         <input type="text" name="prenoms" class="form-control @error('prenoms') is-invalid @enderror"
-                            maxlength="60" value="{{ old('prenoms') }}" required>
+                            maxlength="60" placeholder="Votre prénoms" value="{{ old('prenoms') }}" required>
                         @error('prenoms')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@
                         <label class="form-label">Matricule</label>
                         <input type="text" minlength="8" maxlength="8"
                             class="form-control @error('matricule') is-invalid @enderror" name="matricule"
-                            value="{{ old('matricule') }}" required>
+                            value="{{ old('matricule') }}" placeholder="Votre matricule" required>
                         @error('matricule')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -81,7 +81,7 @@
                     <div class="mb-3">
                         <label class="form-label">Option</label>
                         <input type="text" class="form-control @error('option') is-invalid @enderror" name="option"
-                            value="{{ old('option') }}" required>
+                            value="{{ old('option') }}" placeholder="Votre option" required>
                         @error('option')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -97,7 +97,8 @@
                     <div class="mb-3">
                         <label class="form-label">Date de naissance</label>
                         <input type="date" class="form-control @error('date_naissance') is-invalid @enderror"
-                            name="date_naissance" value="{{ old('date_naissance') }}" required>
+                            name="date_naissance" placeholder="Votre date de naissance"
+                            value="{{ old('date_naissance') }}" required>
                         @error('date_naissance')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -110,7 +111,8 @@
                     <div class="mb-3">
                         <label class="form-label">Lieu de naissance</label>
                         <input type="text" class="form-control @error('lieu_naissance') is-invalid @enderror"
-                            name="lieu_naissance" value="{{ old('lieu_naissance') }}" required>
+                            name="lieu_naissance" placeholder="Votre lieu de naissance"
+                            value="{{ old('lieu_naissance') }}" required>
                         @error('lieu_naissance')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -126,7 +128,7 @@
                     <div class="mb-3">
                         <label class="form-label">Email</label>
                         <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                            value="{{ old('email') }}" required>
+                            value="{{ old('email') }}" placeholder="Votre adresse electronique" required>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -139,7 +141,7 @@
                     <div class="mb-3">
                         <label class="form-label">Téléphone(s)</label>
                         <input type="text" class="form-control @error('contacts') is-invalid @enderror" name="contacts"
-                            value="{{ old('contacts') }}" required>
+                            value="{{ old('contacts') }}" placeholder="Votre téléphone (Format : 22991275862)" required>
                         @error('contacts')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

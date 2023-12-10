@@ -1,11 +1,9 @@
-        <!-- ======= Clients Section ======= -->
+        <!-- ======= Clients Section =======
         <section id="clients" class="clients">
 
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
-                    <!-- <h2>Our Clients</h2> -->
-                    <!-- <p>Temporibus omnis officia</p> -->
                     <h1>Partenaires</h1>
                 </header>
 
@@ -40,4 +38,4 @@
                 </div>
             </div>
 
-        </section>
+        </section> -->

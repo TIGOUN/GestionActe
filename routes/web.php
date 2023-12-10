@@ -174,3 +174,5 @@ Route::get('/filieres/Psychologie', [App\Http\Controllers\FiliereController::cla
 Route::get('/filieres/Études prospectives et développement', [App\Http\Controllers\FiliereController::class, 'etudesetprospectives'])->name('relever.etudesetprospectives');
 Route::get('/filieres/Métier de l\'enseignement en philosophie', [App\Http\Controllers\FiliereController::class, 'enseignant'])->name('relever.enseignant');
 Route::get('/filieres/Genre et projet de développement', [App\Http\Controllers\FiliereController::class, 'genre'])->name('relever.genre');
+Route::get('/filieres/termes et confidentialite', [App\Http\Controllers\FiliereController::class, 'condif'])->name('termes.confid');
+Route::get('/filieres/Conditions utilisations', [App\Http\Controllers\FiliereController::class, 'utili'])->name('termes.utili');

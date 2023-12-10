@@ -50,4 +50,14 @@ class FiliereController extends Controller
     {
         return view('filieres.sociologie');
     }
+
+        public function condif()
+    {
+        return view('termes.confidentialite');
+    }
+
+        public function utili()
+    {
+        return view('termes.utilisations');
+    }
 }
